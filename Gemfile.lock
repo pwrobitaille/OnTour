@@ -67,6 +67,10 @@ GEM
     docile (1.1.5)
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.2.1)
+    dotenv-rails (2.2.1)
+      dotenv (= 2.2.1)
+      railties (>= 3.2, < 5.2)
     erubi (1.7.0)
     execjs (2.7.0)
     factory_girl (4.8.1)
@@ -275,6 +279,7 @@ PLATFORMS
 DEPENDENCIES
   capybara
   coveralls
+  dotenv-rails
   factory_girl_rails
   figaro
   foundation-rails
