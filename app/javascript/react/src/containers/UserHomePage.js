@@ -7,17 +7,15 @@ class UserHomePage extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      user: [
-
-      ], concerts: []
+      user_first_name: "",
+      user_last_name: "",
+      id: "",
     }
     // this.addNewConcert = this.addNewConcert.bind(this)
 
   }
 
   componentDidMount(){
-    // let rootDiv = document.getElementById("app")
-    // let currentUserId = rootDiv.dataset.currentUserId
     fetch(`/api/v1/users/${this.state.id}`, {
       credentials: "same-origin",
       headers: {"Content-Type": "application/json"}
@@ -26,11 +24,12 @@ class UserHomePage extends Component {
       return response.json()
     })
     .then(body => {
+      debugger
       this.setState({
         user_first_name: body.first_name,
         user_last_name: body.last_name,
         id: body.id,
-        concerts: body.concerts
+        image: body.image
       })
     })
   }
@@ -54,26 +53,26 @@ class UserHomePage extends Component {
 
   render(){
 
-      let beers = this.state.concerts.map(concert =>{
-        return(
-        <UserConcertInfo
-          band={concert.band}
-          year={concert.year}
-          venue={concert.venue}
-          opener={concert.opener}
-          attendees={concert.attendees}
-          notes={concert.notes}
-          setlist={concert.setlist}
-        />
-      )
-    })
+    //   let beers = this.state.concerts.map(concert =>{
+    //     return(
+    //     <UserConcertInfo
+    //       band={concert.band}
+    //       year={concert.year}
+    //       venue={concert.venue}
+    //       opener={concert.opener}
+    //       attendees={concert.attendees}
+    //       notes={concert.notes}
+    //       setlist={concert.setlist}
+    //     />
+    //   )
+    // })
     return(
       <div>
       <div className="user-concert-block">
         <div className="left-block">
         {/* <div className="small-4 cell"> */}
           <div className="user-info">
-            <span>User Avatar, User First Name, User Last Name </span>
+            <span>User Avatar, {this.state.user_first_name}, {this.state.user_last_name} </span>
           </div>
         </div>
             <div className="center-block recent-concerts">Recent Concerts
@@ -131,15 +130,15 @@ class UserHomePage extends Component {
         </div>
         <div className="horizontal-line"></div>
 
-          <Switch>
-            <Route path={`/users/${this.state.id}/new-concert`} component={ConcertFormContainer}
-          />
+
           <div className="grid-x">
             <div className="small-3 small-centered text-center columns">
-              <NavLink to={`/users/${this.state.id}/new-concert`} className="add-new-concert-button button">New Concert</NavLink>
+              <NavLink to={`/users/1/new-concert`} className="add-new-concert-button button">New Concert</NavLink>
+            </div>
+            <div className="small-3 small-centered text-center columns">
+              <NavLink to={`/users/1/concerts`} className="add-new-concert-button button">See All Concerts</NavLink>
             </div>
           </div>
-          </Switch>
       </div>
     )
   }

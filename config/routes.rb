@@ -8,8 +8,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users
-
   get 'auth/:provider/callback',  to: 'sessions#create'
 
   get '*path', to: 'static_files#index'

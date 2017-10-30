@@ -7,9 +7,11 @@ class User < ApplicationRecord
       email: auth[:info][:email],
       first_name: auth[:info][:first_name],
       last_name: auth[:info][:last_name],
+      image: auth[:info][:image],
       token: auth[:credentials][:token],
       refresh_token: auth[:credentials][:refresh_token],
       oauth_expires_at: auth[:credentials][:expires_at]
+
     }
     user.save!
     user
