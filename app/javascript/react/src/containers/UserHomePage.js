@@ -7,9 +7,9 @@ class UserHomePage extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      user: [
-
-      ], concerts: []
+      user_first_name: "",
+      user_last_name: "",
+      id: "",
     }
     // this.addNewConcert = this.addNewConcert.bind(this)
 
@@ -24,11 +24,12 @@ class UserHomePage extends Component {
       return response.json()
     })
     .then(body => {
+      debugger
       this.setState({
         user_first_name: body.first_name,
         user_last_name: body.last_name,
         id: body.id,
-        concerts: body.concerts
+        image: body.image
       })
     })
   }
@@ -52,26 +53,26 @@ class UserHomePage extends Component {
 
   render(){
 
-      let beers = this.state.concerts.map(concert =>{
-        return(
-        <UserConcertInfo
-          band={concert.band}
-          year={concert.year}
-          venue={concert.venue}
-          opener={concert.opener}
-          attendees={concert.attendees}
-          notes={concert.notes}
-          setlist={concert.setlist}
-        />
-      )
-    })
+    //   let beers = this.state.concerts.map(concert =>{
+    //     return(
+    //     <UserConcertInfo
+    //       band={concert.band}
+    //       year={concert.year}
+    //       venue={concert.venue}
+    //       opener={concert.opener}
+    //       attendees={concert.attendees}
+    //       notes={concert.notes}
+    //       setlist={concert.setlist}
+    //     />
+    //   )
+    // })
     return(
       <div>
       <div className="user-concert-block">
         <div className="left-block">
         {/* <div className="small-4 cell"> */}
           <div className="user-info">
-            <span>User Avatar, User First Name, User Last Name </span>
+            <span>User Avatar, {this.state.user_first_name}, {this.state.user_last_name} </span>
           </div>
         </div>
             <div className="center-block recent-concerts">Recent Concerts

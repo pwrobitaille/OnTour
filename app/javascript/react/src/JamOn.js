@@ -17,13 +17,14 @@ class JamOn extends Component {
   render(){
     let rootDiv = document.getElementById("app")
     let currentUserId = rootDiv.dataset.currentUserId
-    // <Route path='/users/:id/new-concert' component={ConcertFormContainer} />
-    // <Route path='/users/:id' component={UserHomePage} />
     return(
       <div>
         <NavBar />
         <Switch>
-          <Route exact path = '/users/:id' component={UserHomePage} />
+          <Route exact path = '/users/:id' render={(props) => (
+            <UserHomePage {...props}/>
+)}/>
+{/* component={UserHomePage} /> */}
           <Route path = '/users/:id/new-concert' component={ConcertFormContainer} />
           <Route path='/' component={Home} key={1}/>
         </Switch>
