@@ -11,8 +11,24 @@ body {
   color: white;
   float: left;
 }
+.jam-on-logo:focus {
+  color: white;
+  float: left;
+}
+.jam-on-logo:hover {
+  color: #053A5D;
+  float: left;
+}
 
 .sign-in {
+  color: white;
+  float: right;
+}
+.sign-in:hover {
+  color: #053A5D;
+  float: right;
+}
+.sign-in:focus {
   color: white;
   float: right;
 }
@@ -21,6 +37,7 @@ body {
   text-align: center;
   margin-top: 3%;
   font-size: 70px;
+  color: #053A5D;
 }
 
 .top-bar {
@@ -36,11 +53,11 @@ body {
 }
 
 .button:hover {
-  background: black;
+  background: #053A5D;
 }
 
 .button:focus {
-  background: black;
+  background: #053A5D;
 }
 
 .register-button {
@@ -52,7 +69,7 @@ font-size: 20px;
 border-radius: 50px;
 border-width: thin;
 border-style: solid;
-border-color: black;
+border-color: #053A5D;
 
 }
 
@@ -63,5 +80,5 @@ border-color: black;
   background: none;
   border-width: thin;
   border-style: solid;
-  border-color: black;
+  border-color: #053A5D;
 }
