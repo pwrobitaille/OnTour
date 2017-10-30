@@ -1,3 +1,2 @@
-<div>Peter
-<%= react_component("UserHomePage", {user: @user}, {prerender: true}) %>
-</div>
+<%= javascript_pack_tag 'index.js' %>
+<div id="app" data-user-id=" <%= @user_id %>" />

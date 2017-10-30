@@ -16,8 +16,6 @@ class UserHomePage extends Component {
   }
 
   componentDidMount(){
-    // let rootDiv = document.getElementById("app")
-    // let currentUserId = rootDiv.dataset.currentUserId
     fetch(`/api/v1/users/${this.state.id}`, {
       credentials: "same-origin",
       headers: {"Content-Type": "application/json"}
@@ -131,15 +129,15 @@ class UserHomePage extends Component {
         </div>
         <div className="horizontal-line"></div>
 
-          <Switch>
-            <Route path={`/users/${this.state.id}/new-concert`} component={ConcertFormContainer}
-          />
+
           <div className="grid-x">
             <div className="small-3 small-centered text-center columns">
-              <NavLink to={`/users/${this.state.id}/new-concert`} className="add-new-concert-button button">New Concert</NavLink>
+              <NavLink to={`/users/1/new-concert`} className="add-new-concert-button button">New Concert</NavLink>
+            </div>
+            <div className="small-3 small-centered text-center columns">
+              <NavLink to={`/users/1/concerts`} className="add-new-concert-button button">See All Concerts</NavLink>
             </div>
           </div>
-          </Switch>
       </div>
     )
   }

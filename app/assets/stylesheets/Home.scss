@@ -4,7 +4,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-
+  overflow: scroll;
 }
 
 
@@ -33,6 +33,7 @@ body {
   position: fixed;
   width: 95%;
   top: 0;
+
 }
 
 .button:hover {
