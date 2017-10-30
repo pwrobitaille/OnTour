@@ -1,0 +1,67 @@
+body {
+  background-image: url(https://imagecache.tourgigs.com/wp-content/uploads/showpage_n2.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+
+}
+
+
+.jam-on-logo {
+  color: white;
+  float: left;
+}
+
+.sign-in {
+  color: white;
+  float: right;
+}
+
+.jam-on-title {
+  text-align: center;
+  margin-top: 3%;
+  font-size: 70px;
+}
+
+.top-bar {
+  background: none;
+  padding: 0 20px 0 20px;
+  margin: 0 40px 0 40px;
+  // border-style: solid;
+  // border-top: none;
+  position: fixed;
+  width: 95%;
+  top: 0;
+}
+
+.button:hover {
+  background: black;
+}
+
+.button:focus {
+  background: black;
+}
+
+.register-button {
+margin-top: 5%;
+padding-left: 39px;
+padding-right: 39px;
+background: none;
+font-size: 20px;
+border-radius: 50px;
+border-width: thin;
+border-style: solid;
+border-color: black;
+
+}
+
+.concert-data-button {
+  background: none;
+  font-size: 20px;
+  border-radius: 50px;
+  background: none;
+  border-width: thin;
+  border-style: solid;
+  border-color: black;
+}
