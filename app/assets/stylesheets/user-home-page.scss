@@ -4,6 +4,7 @@ $translucent-form-overlay-max-width: 800px;
   max-width: $translucent-form-overlay-max-width;
   margin: auto;
   margin-top: 50px;
+
   background-color: rgba(54, 54, 54, 0.8);
   padding: 20px;
   color: white;
@@ -27,36 +28,35 @@ $translucent-form-overlay-max-width: 800px;
 .user-concert-block {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 3fr 1fr;
-      grid-template-columns: 1fr 3fr 1fr;
-  -ms-grid-rows: 1fr 8fr 1fr;
-      grid-template-rows: 1fr 8fr 1fr;
+  -ms-grid-columns: 1fr 3fr;
+      grid-template-columns: 1fr 3fr;
+  -ms-grid-rows: 1fr 8fr;
+      grid-template-rows: 1fr 8fr;
   grid-gap: 20px;
   height: 30vh;
   margin-top: 7%;
-  margin-left: 60px;
-}
+  margin-left: 60px; }
 
-@media screen and (max-width: 60em) {
-  .left-block {
-    -ms-grid-row: 2;
-        grid-row-start: 2;
-    -ms-grid-column: 1;
-        grid-column-start: 1;
-    grid-column-end: 4;
-  }
-}
+// @media screen and (max-width: 60em) {
+//   .left-block {
+//     -ms-grid-row: 2;
+//         grid-row-start: 2;
+//     -ms-grid-column: 1;
+//         grid-column-start: 1;
+//     grid-column-end: 4;
+//   }
+// }
 
-@media screen and (max-width: 60em) {
-  .center-block {
-    -ms-grid-row: 3;
-        grid-row-start: 3;
-    -ms-grid-column: 1;
-        grid-column-start: 1;
-    grid-column-end: 4;
-
-  }
-}
+// @media screen and (max-width: 60em) {
+//   // .center-block {
+//   //   -ms-grid-row: 3;
+//   //       grid-row-start: 3;
+//   //   -ms-grid-column: 1;
+//   //       grid-column-start: 1;
+//   //   // grid-column-end: 4;
+//   //
+//   // }
+// }
 
 
 .add-new-concert-text {
@@ -87,11 +87,15 @@ $translucent-form-overlay-max-width: 800px;
   border-color: black;
   border-width: medium;
   background-color: rgba(54, 54, 54, 0.8);
+  margin-left: 5%;
+  margin-right: 7rem;
 
 }
 
 .table-expand {
   margin-top: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .table-expand td {
@@ -117,7 +121,7 @@ $translucent-form-overlay-max-width: 800px;
 .add-new-concert-button {
   display: block;
   margin: auto;
-  margin-left: 50px;
+  // margin-left: 50px;
   background: black;
   font-size: 20px;
   border-radius: 50px;
@@ -125,8 +129,8 @@ $translucent-form-overlay-max-width: 800px;
   border-style: solid;
   border-color: black;
   margin-top: 5%;
-  padding-left: 39px;
-  padding-right: 39px;
+  // padding-left: 39px;
+  // padding-right: 39px;
 }
 
 // .table-expand-row.is-active .expand-icon::after {
