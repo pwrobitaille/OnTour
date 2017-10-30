@@ -4,7 +4,6 @@ import NavBar from './containers/NavBar'
 import Home from './containers/Home'
 import UserHomePage from './containers/UserHomePage'
 import ConcertFormContainer from './containers/ConcertFormContainer'
-import Users from './containers/Users'
 
 
 class JamOn extends Component {
@@ -24,7 +23,8 @@ class JamOn extends Component {
       <div>
         <NavBar />
         <Switch>
-          <Route path = '/users' component={Users} />
+          <Route exact path = '/users/:id' component={UserHomePage} />
+          <Route path = '/users/:id/new-concert' component={ConcertFormContainer} />
           <Route path='/' component={Home} key={1}/>
         </Switch>
       </div>
