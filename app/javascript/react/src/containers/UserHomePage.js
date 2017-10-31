@@ -6,10 +6,10 @@ import ConcertFormContainer from './ConcertFormContainer'
 class UserHomePage extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      user_first_name: "",
-      user_last_name: "",
-      id: "",
+    this.state = { user: []
+      // user_first_name: "",
+      // user_last_name: "",
+      // id: "",
     }
     // this.addNewConcert = this.addNewConcert.bind(this)
 
@@ -24,13 +24,13 @@ class UserHomePage extends Component {
       return response.json()
     })
     .then(body => {
-      debugger
       this.setState({
         user_first_name: body.first_name,
         user_last_name: body.last_name,
         id: body.id,
         image: body.image
       })
+      debugger
     })
   }
 
@@ -68,11 +68,12 @@ class UserHomePage extends Component {
     // })
     return(
       <div>
+      <div className="user-info-div">
       <div className="user-concert-block">
         <div className="left-block">
         {/* <div className="small-4 cell"> */}
           <div className="user-info">
-            <span>User Avatar, {this.state.user_first_name}, {this.state.user_last_name} </span>
+            <span>User Avatar, {this.state.user_first_name} {this.state.user_last_name} </span>
           </div>
         </div>
             <div className="center-block recent-concerts">Recent Concerts
@@ -93,12 +94,6 @@ class UserHomePage extends Component {
                     <td>setlist</td>
                   </tr>
 
-                  {/* <tr className="table-expand-row-content">
-                    <td colspan="8" className="table-expand-row-nested">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque unde quaerat reprehenderit ipsa ipsam, adipisci facere repellendus impedit at, quisquam dicta optio veniam quia nesciunt, inventore quod in neque magni?</p>
-                    </td>
-                  </tr> */}
-
                   <tr className="table-expand-row" data-open-details>
                     <td>July 15</td>
                     <td>Bruce Springsteen</td>
@@ -106,28 +101,17 @@ class UserHomePage extends Component {
                     <td>setlis</td>
                   </tr>
 
-                  {/* <tr className="table-expand-row-content">
-                    <td colspan="8" className="table-expand-row-nested">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque unde quaerat reprehenderit ipsa ipsam, adipisci facere repellendus impedit at, quisquam dicta optio veniam quia nesciunt, inventore quod in neque magni?</p>
-                    </td>
-                  </tr> */}
-
                   <tr className="table-expand-row" data-open-details>
                     <td>June 15</td>
                     <td>Tedeschi Trucks Band</td>
                     <td>Red Rocks Amphatheater</td>
                     <td>setlist</td>
                   </tr>
-
-                  {/* <tr className="table-expand-row-content">
-                    <td colspan="8" className="table-expand-row-nested">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque unde quaerat reprehenderit ipsa ipsam, adipisci facere repellendus impedit at, quisquam dicta optio veniam quia nesciunt, inventore quod in neque magni?</p>
-                    </td>
-                  </tr> */}
                 </tbody>
               </table>
             </div>
         </div>
+      </div>
         <div className="horizontal-line"></div>
 
 
