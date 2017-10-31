@@ -1,4 +1,6 @@
 class Api::V1::ConcertsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
 
   def index
     concerts = []
@@ -14,7 +16,9 @@ class Api::V1::ConcertsController < ApplicationController
   end
 
   def create
+    binding.pry
       concert = Concert.new(concert_params)
+      concert.users = current_user
     if concert.save
       concert = Conceert.last
       # entry = { id: review.id, rating: review.rating, description: review.description, username: review.user.username, avatar: review.user.avatar, beer_id: review.beer_id, created_at: review.created_at}
