@@ -9,7 +9,6 @@ $translucent-form-overlay-max-width: 800px;
   padding: 20px;
   color: white;
 
-  // workaround 6.3.0 bug
   .columns.row {
     display: block;
   }
@@ -25,6 +24,15 @@ $translucent-form-overlay-max-width: 800px;
   }
 }
 
+.user-info-div {
+  margin: 50px 50px 0px 60px;
+  border-style: solid;
+  border-color: #053A5D;
+  border-width: medium;
+  background-color: rgba(54, 54, 54, 0.8);
+
+}
+
 .user-concert-block {
   display: -ms-grid;
   display: grid;
@@ -34,29 +42,11 @@ $translucent-form-overlay-max-width: 800px;
       grid-template-rows: 1fr 8fr;
   grid-gap: 20px;
   height: 30vh;
-  margin-top: 7%;
-  margin-left: 60px; }
+  margin-top: 10px;
+  margin-left: 10px;
+  // margin-right: 40px;
+}
 
-// @media screen and (max-width: 60em) {
-//   .left-block {
-//     -ms-grid-row: 2;
-//         grid-row-start: 2;
-//     -ms-grid-column: 1;
-//         grid-column-start: 1;
-//     grid-column-end: 4;
-//   }
-// }
-
-// @media screen and (max-width: 60em) {
-//   // .center-block {
-//   //   -ms-grid-row: 3;
-//   //       grid-row-start: 3;
-//   //   -ms-grid-column: 1;
-//   //       grid-column-start: 1;
-//   //   // grid-column-end: 4;
-//   //
-//   // }
-// }
 
 
 .add-new-concert-text {
@@ -69,26 +59,35 @@ $translucent-form-overlay-max-width: 800px;
 .form-submit-button {
   display: block;
   margin: auto;
+  background-color: #053A5D;
+  border-radius: 50px;
+}
+
+.form-submit-button:hover {
+  color: black;
 }
 
 .user-info {
   color: white;
-  border-style: solid;
-  border-color: black;
-  border-width: medium;
-  background-color: rgba(54, 54, 54, 0.8);
+  font-size: 30px;
+  margin-bottom: 5px;
+}
 
+.user-image {
+  height: auto;
+  width: 50%;
+  border-style: solid;
+  border-color: #053A5D;
+}
+
+.user-details {
+  margin-top: -20px;
 }
 
 .recent-concerts {
   text-decoration: underline;
   color: white;
-  border-style: solid;
-  border-color: black;
-  border-width: medium;
-  background-color: rgba(54, 54, 54, 0.8);
-  margin-left: 5%;
-  margin-right: 7rem;
+  margin-left: 12%;
 
 }
 
@@ -113,67 +112,19 @@ $translucent-form-overlay-max-width: 800px;
 .horizontal-line {
   margin: 25px 60px 0px 60px;
   height: 10px;
-  background: black;
+  background: #053A5D;
   overflow: hidden;
-  // margin: 0 10px 0 10px;
 }
 
 .add-new-concert-button {
   display: block;
   margin: auto;
-  // margin-left: 50px;
-  background: black;
+  background: rgba(54, 54, 54, 0.8);
   font-size: 20px;
   border-radius: 50px;
-  border-width: thin;
+  border-width:medium;
   border-style: solid;
-  border-color: black;
+  border-color: #053A5D;
   margin-top: 5%;
-  // padding-left: 39px;
-  // padding-right: 39px;
+
 }
-
-// .table-expand-row.is-active .expand-icon::after {
-//   content: '-';
-// }
-//
-// .table-expand-row .expand-icon::after {
-//   content: '+';
-//   float: right;
-// }
-
-// .table-expand-row-content {
-//   display: none;
-// }
-
-// .table-expand-row-content.is-active {
-//   display: table-row;
-//   -webkit-animation: fadeIn ease-in 1;
-//           animation: fadeIn ease-in 1;
-//   -webkit-animation-fill-mode: both;
-//           animation-fill-mode: both;
-//   -webkit-animation-duration: 0.5s;
-//           animation-duration: 0.5s;
-// }
-
-// .table-expand-row-nested {
-//   background-color: #e6e6e6;
-// }
-//
-// @-webkit-keyframes fadeIn {
-//   from {
-//     opacity: 0;
-//   }
-//   to {
-//     opacity: 1;
-//   }
-// }
-//
-// @keyframes fadeIn {
-//   from {
-//     opacity: 0;
-//   }
-//   to {
-//     opacity: 1;
-//   }
-// }

@@ -3,15 +3,15 @@ import { Route, Switch, NavLink } from 'react-router-dom';
 import ConcertFormContainer from './ConcertFormContainer'
 
 
+
+
 class UserHomePage extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      user_first_name: "",
-      user_last_name: "",
-      id: "",
+      user: [],
+      concerts:[]
     }
-    // this.addNewConcert = this.addNewConcert.bind(this)
 
   }
 
@@ -24,7 +24,6 @@ class UserHomePage extends Component {
       return response.json()
     })
     .then(body => {
-      debugger
       this.setState({
         user_first_name: body.first_name,
         user_last_name: body.last_name,
@@ -35,7 +34,7 @@ class UserHomePage extends Component {
   }
 
   // addNewConcert(formPayLoad) {
-  //   fetch(`/api/v1/users/${this.props.match.params.id}/concerts.json`, {
+  //   fetch(`/api/v1/users/${this.state.id}/concerts.json`, {
   //     method: "POST",
   //     body: JSON.stringify(formPayLoad),
   //     credentials: "same-origin",
@@ -50,6 +49,7 @@ class UserHomePage extends Component {
   //     this.setState({concerts: updateConcerts})
   //   })
   // }
+
 
   render(){
 
@@ -68,11 +68,12 @@ class UserHomePage extends Component {
     // })
     return(
       <div>
+      <div className="user-info-div">
       <div className="user-concert-block">
         <div className="left-block">
-        {/* <div className="small-4 cell"> */}
+          <img src={this.state.image} alt="pic" className="user-image"/>
           <div className="user-info">
-            <span>User Avatar, {this.state.user_first_name}, {this.state.user_last_name} </span>
+            <span className="user-details"> {this.state.user_first_name} {this.state.user_last_name} </span>
           </div>
         </div>
             <div className="center-block recent-concerts">Recent Concerts
@@ -93,24 +94,12 @@ class UserHomePage extends Component {
                     <td>setlist</td>
                   </tr>
 
-                  {/* <tr className="table-expand-row-content">
-                    <td colspan="8" className="table-expand-row-nested">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque unde quaerat reprehenderit ipsa ipsam, adipisci facere repellendus impedit at, quisquam dicta optio veniam quia nesciunt, inventore quod in neque magni?</p>
-                    </td>
-                  </tr> */}
-
                   <tr className="table-expand-row" data-open-details>
                     <td>July 15</td>
                     <td>Bruce Springsteen</td>
                     <td>Gillette Stadium</td>
                     <td>setlis</td>
                   </tr>
-
-                  {/* <tr className="table-expand-row-content">
-                    <td colspan="8" className="table-expand-row-nested">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque unde quaerat reprehenderit ipsa ipsam, adipisci facere repellendus impedit at, quisquam dicta optio veniam quia nesciunt, inventore quod in neque magni?</p>
-                    </td>
-                  </tr> */}
 
                   <tr className="table-expand-row" data-open-details>
                     <td>June 15</td>
@@ -119,21 +108,30 @@ class UserHomePage extends Component {
                     <td>setlist</td>
                   </tr>
 
-                  {/* <tr className="table-expand-row-content">
-                    <td colspan="8" className="table-expand-row-nested">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque unde quaerat reprehenderit ipsa ipsam, adipisci facere repellendus impedit at, quisquam dicta optio veniam quia nesciunt, inventore quod in neque magni?</p>
-                    </td>
-                  </tr> */}
+                  <tr className="table-expand-row" data-open-details>
+                    <td>June 15</td>
+                    <td>Tedeschi Trucks Band</td>
+                    <td>Red Rocks Amphatheater</td>
+                    <td>setlist</td>
+                  </tr>
+
+                  <tr className="table-expand-row" data-open-details>
+                    <td>June 15</td>
+                    <td>Tedeschi Trucks Band</td>
+                    <td>Red Rocks Amphatheater</td>
+                    <td>setlist</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
         </div>
+      </div>
         <div className="horizontal-line"></div>
 
 
           <div className="grid-x">
             <div className="small-3 small-centered text-center columns">
-              <NavLink to={`/users/1/new-concert`} className="add-new-concert-button button">New Concert</NavLink>
+              <NavLink to={`/users/1/new-concert`} className="add-new-concert-button button">Add New Concert </NavLink>
             </div>
             <div className="small-3 small-centered text-center columns">
               <NavLink to={`/users/1/concerts`} className="add-new-concert-button button">See All Concerts</NavLink>
@@ -144,14 +142,5 @@ class UserHomePage extends Component {
   }
 
 }
-
-
-
-{/* <Route path={`/users/${this.state.id}/new-concert`} render = {props => (<ConcertFormContainer
-  addNewConcert={this.addNewConcert}
-  userId={this.state.id}
-  {...props}
-/>)}
-/> */}
 
 export default UserHomePage

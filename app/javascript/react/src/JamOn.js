@@ -21,11 +21,8 @@ class JamOn extends Component {
       <div>
         <NavBar />
         <Switch>
-          <Route exact path = '/users/:id' render={(props) => (
-            <UserHomePage {...props}/>
-)}/>
-{/* component={UserHomePage} /> */}
-          <Route path = '/users/:id/new-concert' component={ConcertFormContainer} />
+          <Route exact path='/users/:id' component={UserHomePage} />
+          <Route path='/users/:id/new-concert' component={ConcertFormContainer} />
           <Route path='/' component={Home} key={1}/>
         </Switch>
       </div>

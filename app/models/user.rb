@@ -1,4 +1,9 @@
 class User < ApplicationRecord
+
+  has_many :userconcerts
+  has_many :concerts, through: :userconcerts
+
+
   def self.update_or_create(auth)
     user = User.find_by(uid: auth[:uid]) || User.new
     user.attributes = {
