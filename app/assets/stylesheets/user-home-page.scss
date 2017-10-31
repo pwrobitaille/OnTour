@@ -43,9 +43,10 @@ $translucent-form-overlay-max-width: 800px;
   grid-gap: 20px;
   height: 30vh;
   margin-top: 10px;
-  margin-left: 40px;
+  margin-left: 10px;
   // margin-right: 40px;
 }
+
 
 
 .add-new-concert-text {
@@ -68,22 +69,25 @@ $translucent-form-overlay-max-width: 800px;
 
 .user-info {
   color: white;
+  font-size: 30px;
+  margin-bottom: 5px;
+}
+
+.user-image {
+  height: auto;
+  width: 50%;
   border-style: solid;
   border-color: #053A5D;
-  border-width: medium;
-  background-color: rgba(54, 54, 54, 0.8);
+}
 
+.user-details {
+  margin-top: -20px;
 }
 
 .recent-concerts {
   text-decoration: underline;
   color: white;
-  border-style: solid;
-  border-color: #053A5D;
-  border-width: medium;
-  background-color: rgba(54, 54, 54, 0.8);
-  margin-left: 5%;
-  margin-right: 40px;
+  margin-left: 12%;
 
 }
 

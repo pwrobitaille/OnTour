@@ -18,6 +18,8 @@ class ConcertFormContainer extends Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleClearForm = this.handleClearForm.bind(this)
+    this.addNewConcert = this.addNewConcert.bind(this)
+
   }
 
   handleChange(event) {
@@ -39,6 +41,30 @@ class ConcertFormContainer extends Component {
     }
   }
 
+  addNewConcert(formPayLoad) {
+    fetch(`/api/v1/users/1/concerts`, {
+      method: "POST",
+      body: JSON.stringify(formPayLoad),
+      credentials: "same-origin",
+      headers: {"Content-Type": "application/json"}
+    })
+    .then(response => {
+      return response.json()
+    })
+    .then(body => {
+      this.setState({
+        band: body.band,
+        concertYear: body.year,
+        concertVenue: body.venue,
+        concertOpener: body.opener,
+        concertAttendees: body.attendees,
+        concertNotes: body.notes,
+        concertSetlist: body.setlist
+      })
+    })
+  }
+
+
   handleSubmit(event) {
     event.preventDefault();
     let formPayLoad = {
@@ -49,14 +75,14 @@ class ConcertFormContainer extends Component {
       notes: this.state.concertNotes,
       setlist: this.state.concertSetlist
     }
-    this.props.addNewArticle(formPayLoad)
+    this.addNewConcert(formPayLoad)
     this.handleClearForm()
   }
 
   render() {
     return(
       <div className="translucent-form-overlay">
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <div className="add-new-concert-text">
           <h3 >Add New Concert</h3>
         </div>
@@ -65,6 +91,7 @@ class ConcertFormContainer extends Component {
               content={this.state.band}
               label="Band"
               name="band"
+              handleChange={this.handleChange}
             />
           </div>
           <div className="grid-x cell">
@@ -72,6 +99,7 @@ class ConcertFormContainer extends Component {
               content={this.state.concertYear}
               label="Year"
               name="concertYear"
+              handleChange={this.handleChange}
             />
           </div>
           <div className="grid-x cell">
@@ -79,6 +107,7 @@ class ConcertFormContainer extends Component {
               content={this.state.concertVenue}
               label="Venue"
               name="concertVenue"
+              handleChange={this.handleChange}
             />
           </div>
           <div className="grid-x cell">
@@ -86,6 +115,7 @@ class ConcertFormContainer extends Component {
               content={this.state.concertOpener}
               label="Opener"
               name="concertOpener"
+              handleChange={this.handleChange}
             />
           </div>
           <div className="grid-x">
@@ -93,6 +123,7 @@ class ConcertFormContainer extends Component {
               content={this.state.concertAttendees}
               label="Attendees"
               name="concertAttendees"
+              handleChange={this.handleChange}
             />
             </div>
             <div className="grid-x">
@@ -100,6 +131,7 @@ class ConcertFormContainer extends Component {
                 content={this.state.concertNotes}
                 label="Notes"
                 name="concertNotes"
+                handleChange={this.handleChange}
               />
             </div>
             <div className="grid-x">
@@ -107,10 +139,11 @@ class ConcertFormContainer extends Component {
                 content={this.state.concertSetlist}
                 label="Setlist"
                 name="concertSetlist"
+                handleChange={this.handleChange}
               />
             </div>
-          <button type="button" className="primary button expanded form-submit-button">
-            Search
+          <button onClick={this.handleSubmit} type="button" className="primary button expanded form-submit-button">
+            Submit
           </button>
         </form>
       </div>
