@@ -29,8 +29,9 @@ class ConcertFormContainer extends Component {
     this.setState({[name]: value})
   }
 
-  handleClearForm(){
-    this.state = {
+  handleClearForm(event){
+    event.preventDefault();
+    this.setState({
       band: "",
       concertYear: "",
       concertVenue: "",
@@ -38,7 +39,7 @@ class ConcertFormContainer extends Component {
       concertAttendees: "",
       concertNotes: "",
       concertSetlist: ""
-    }
+    })
   }
 
   addNewConcert(formPayLoad) {
@@ -70,13 +71,14 @@ class ConcertFormContainer extends Component {
     let formPayLoad = {
       band: this.state.band,
       year: this.state.concertYear,
+      venue: this.state.concertVenue,
       opener: this.state.concertOpener,
       attendees: this.state.concertAttendees,
       notes: this.state.concertNotes,
       setlist: this.state.concertSetlist
     }
     this.addNewConcert(formPayLoad)
-    this.handleClearForm()
+    this.handleClearForm(event)
   }
 
   render() {

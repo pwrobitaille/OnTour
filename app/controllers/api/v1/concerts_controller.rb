@@ -3,27 +3,26 @@ class Api::V1::ConcertsController < ApplicationController
 
 
   def index
-    concerts = []
-      latest_concert = Concert.last
-      concert = Concert.all
-      first_concert = Concert.first
-    render json: Concert.all
+    @concert = current_user.concerts
+    render json: @concert
   end
 
   def show
-    concert = Concert.find(params[:id])
-    render json: Concert.all
+    # @concert = Concert.find(params[:id])
+    # @bands = @concert.bands
+    # render json: Concert.all
   end
 
   def create
-    binding.pry
-      concert = Concert.new(concert_params)
-      concert.users = current_user
-    if concert.save
-      concert = Conceert.last
-      # entry = { id: review.id, rating: review.rating, description: review.description, username: review.user.username, avatar: review.user.avatar, beer_id: review.beer_id, created_at: review.created_at}
+    @band = Band.find(params[:id])
+    @concert = Concert.new(concert_params)
+    @concert.band = @band
 
-      render json: entry
+    userconcert = Userconcert.new(concert: @concert, user: current_user)
+    concertband = Concertband.new(concert: @concert, band: @concert.band )
+    if userconcert.save && concert.save && concertband
+      concert = Concert.last
+      render json: concert
     end
   end
 

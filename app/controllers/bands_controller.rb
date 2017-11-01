@@ -1,0 +1,3 @@
+class Band < ApplicationRecord
+
+end
