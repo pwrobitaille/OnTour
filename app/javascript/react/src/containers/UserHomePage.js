@@ -73,7 +73,8 @@ class UserHomePage extends Component {
         <div className="left-block">
           <img src={this.state.image} alt="pic" className="user-image"/>
           <div className="user-info">
-            <span className="user-details"> {this.state.user_first_name} {this.state.user_last_name} </span>
+            <span className="user-details"> {this.state.user_first_name}
+              {current_user.first_name} {this.state.user_last_name} </span>
           </div>
         </div>
             <div className="center-block recent-concerts">Recent Concerts
