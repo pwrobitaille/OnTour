@@ -16,7 +16,8 @@ class UserHomePage extends Component {
   }
 
   componentDidMount(){
-    fetch(`/api/v1/users/${this.state.id}`, {
+    // let currentUserId = this.match.params.id
+    fetch(`/api/v1/users/`, {
       credentials: "same-origin",
       headers: {"Content-Type": "application/json"}
     })
@@ -24,12 +25,7 @@ class UserHomePage extends Component {
       return response.json()
     })
     .then(body => {
-      this.setState({
-        user_first_name: body.first_name,
-        user_last_name: body.last_name,
-        id: body.id,
-        image: body.image
-      })
+      this.setState({user: body})
     })
   }
 
@@ -71,10 +67,9 @@ class UserHomePage extends Component {
       <div className="user-info-div">
       <div className="user-concert-block">
         <div className="left-block">
-          <img src={this.state.image} alt="pic" className="user-image"/>
+          <img src={this.state.user.image} alt="pic" className="user-image"/>
           <div className="user-info">
-            <span className="user-details"> {this.state.user_first_name}
-              {current_user.first_name} {this.state.user_last_name} </span>
+            <span className="user-details"> {this.state.user.first_name} {this.state.user.last_name} </span>
           </div>
         </div>
             <div className="center-block recent-concerts">Recent Concerts
