@@ -51,70 +51,73 @@ class UserHomePage extends Component {
               <span className="user-details"> {this.state.user.first_name} {this.state.user.last_name} </span>
             </div>
           </div>
-              <div className="center-block recent-concerts">Recent Concerts
-                <table className="table-expand">
-                  <thead>
-                    <tr className="table-expand-row">
-                      <th width="200">Date</th>
-                      <th width="200">Concert</th>
-                      <th width="200">Venue</th>
-                      <th width="200">Setlist</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr className="table-expand-row" data-open-details>
-                      <td>August 15</td>
-                      <td>Phish</td>
-                      <td>Madison Square Garden</td>
-                      <td>setlist</td>
-                    </tr>
+            <div className="center-block recent-concerts">Recent Concerts
+              <table className="table-expand">
+                <thead>
+                  <tr className="table-expand-row">
+                    <th width="200">Date</th>
+                    <th width="200">Concert</th>
+                    <th width="200">Venue</th>
+                    <th width="200">Setlist</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="table-expand-row" data-open-details>
+                    <td>August 15</td>
+                    <td>Phish</td>
+                    <td>Madison Square Garden</td>
+                    <td>setlist</td>
+                  </tr>
 
-                    <tr className="table-expand-row" data-open-details>
-                      <td>July 15</td>
-                      <td>Bruce Springsteen</td>
-                      <td>Gillette Stadium</td>
-                      <td>setlis</td>
-                    </tr>
+                  <tr className="table-expand-row" data-open-details>
+                    <td>July 15</td>
+                    <td>Bruce Springsteen</td>
+                    <td>Gillette Stadium</td>
+                    <td>setlis</td>
+                  </tr>
 
-                    {/* <tr className="table-expand-row" data-open-details>
-                      <td>June 15</td>
-                      <td>Tedeschi Trucks Band</td>
-                      <td>Red Rocks Amphatheater</td>
-                      <td>setlist</td>
-                    </tr>
+                  <tr className="table-expand-row" data-open-details>
+                    <td>June 15</td>
+                    <td>Tedeschi Trucks Band</td>
+                    <td>Red Rocks Amphatheater</td>
+                    <td>setlist</td>
+                  </tr>
 
-                    <tr className="table-expand-row" data-open-details>
-                      <td>June 15</td>
-                      <td>Tedeschi Trucks Band</td>
-                      <td>Red Rocks Amphatheater</td>
-                      <td>setlist</td>
-                    </tr>
+                  <tr className="table-expand-row" data-open-details>
+                    <td>June 15</td>
+                    <td>Tedeschi Trucks Band</td>
+                    <td>Red Rocks Amphatheater</td>
+                    <td>setlist</td>
+                  </tr>
 
-                    <tr className="table-expand-row" data-open-details>
-                      <td>June 15</td>
-                      <td>Tedeschi Trucks Band</td>
-                      <td>Red Rocks Amphatheater</td>
-                      <td>setlist</td>
-                    </tr> */}
-                  </tbody>
-                </table>
-              </div>
-          </div>
-        </div>
-          <div className="horizontal-line"></div>
-
-
-
-
-            <div className="grid-x">
-              <div className="small-3 small-centered text-center columns">
-                <NavLink to={`/users/1/new-concert`} className="add-new-concert-button button">Add New Concert </NavLink>
-              </div>
-              <div className="small-3 small-centered text-center columns">
-                <NavLink to={`/users/1/concerts`} className="add-new-concert-button button">See All Concerts</NavLink>
-              </div>
+                  <tr className="table-expand-row" data-open-details>
+                    <td>June 15</td>
+                    <td>Tedeschi Trucks Band</td>
+                    <td>Red Rocks Amphatheater</td>
+                    <td>setlist</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
         </div>
+      </div>
+        <div className="grid-x">
+          <span className="small-3 small-offset-3 cells">
+            <NavLink to={`/users/1/new-concert`} className="add-new-concert-button button">Add New Concert </NavLink>
+          </span>
+          <span className="small-3 small-offset-2 cells">
+            <NavLink to={`/users/1/concerts`} className="add-new-concert-button button">See All Concerts</NavLink>
+          </span>
+        </div>
+
+        <div className="grid-x">
+          <div className="data-points">
+            <div className="top-artist">Top Artist</div>
+            <div className="top-venue">Top Venue</div>
+            <div className="shows-per-year">Number of shows by year</div>
+          </div>
+        </div>
+      </div>
       )
 
   }

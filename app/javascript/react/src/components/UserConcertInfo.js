@@ -27,6 +27,7 @@ componentDidMount(){
     let concerts = this.state.concerts.map(concert =>{
       return(
           <ConcertTile
+            id={concert.id}
             band={concert.band}
             year={concert.year}
             venue={concert.venue}
@@ -38,22 +39,25 @@ componentDidMount(){
         )
       })
       return(
-        <table className="table-expand">
-          <thead>
-            <tr className="table-expand-row">
-              <th width="200">Date</th>
-              <th width="200">Concert</th>
-              <th width="200">Venue</th>
-              <th width="200">Opener</th>
-              <th width="200">Attendees</th>
-              <th width="200">Notes</th>
-              <th width="200">Setlist</th>
-            </tr>
-          </thead>
-          <tbody className="table-expand-row" data-open-details>
-            {concerts}
-          </tbody>
-        </table>
+        <div className="concert-table-div">
+          <table className="table-expand">
+            <thead>
+              <tr className="table-expand-row">
+                <th width="50">Number</th>
+                <th width="100">Date</th>
+                <th width="200">Concert</th>
+                <th width="200">Venue</th>
+                <th width="150">Opener</th>
+                <th width="220">Attendees</th>
+                <th width="300">Notes</th>
+                <th width="100">Setlist</th>
+              </tr>
+            </thead>
+            <tbody className="table-expand-row" data-open-details>
+              {concerts}
+            </tbody>
+          </table>
+        </div>
       )
     }
 }
