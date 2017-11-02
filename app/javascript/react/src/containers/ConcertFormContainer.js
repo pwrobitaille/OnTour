@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import InputField from '../components/InputField';
 import TextField from '../components/TextField';
+import { push } from 'react-router'
+import { browserHistory } from 'history'
 
 
 class ConcertFormContainer extends Component {
@@ -13,7 +15,7 @@ class ConcertFormContainer extends Component {
       concertOpener: "",
       concertAttendees: "",
       concertNotes: "",
-      concertSetlist: ""
+      concertSetlist: "",
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -42,6 +44,10 @@ class ConcertFormContainer extends Component {
     })
   }
 
+  redirect(){
+
+  }
+
   addNewConcert(formPayLoad) {
     fetch(`/api/v1/concerts`, {
       method: "POST",
@@ -54,15 +60,16 @@ class ConcertFormContainer extends Component {
     })
     .then(body => {
       this.setState({
-        band: body.band,
-        concertYear: body.year,
-        concertVenue: body.venue,
+        band: body.band.name,
+        concertYear: body.concert.year,
+        concertVenue: body.concert.venue,
         concertOpener: body.opener,
-        concertAttendees: body.attendees,
-        concertNotes: body.notes,
-        concertSetlist: body.setlist
+        concertAttendees: body.concert.attendees,
+        concertNotes: body.concert.notes,
+        concertSetlist: body.concert.setlist
       })
     })
+    this.props.history.push('/users/:id')
   }
 
 

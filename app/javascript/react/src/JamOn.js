@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, Switch } from 'react-router-dom';
+import { browserHistory, Route, Switch } from 'react-router-dom';
 import NavBar from './containers/NavBar'
 import Home from './containers/Home'
 import UserHomePage from './containers/UserHomePage'

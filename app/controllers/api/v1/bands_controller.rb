@@ -2,8 +2,12 @@ class Api::V1::BandsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
 
+
+
   def create
-    @band = Band.new(band_params)
+    @band = Band.create(band_params)
+    binding.pry
+    render json: @band 
   end
 
   def band_params
