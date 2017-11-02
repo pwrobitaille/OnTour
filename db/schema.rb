@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171031220136) do
+ActiveRecord::Schema.define(version: 20171102202641) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,11 +22,11 @@ ActiveRecord::Schema.define(version: 20171031220136) do
   end
 
   create_table "concert_bands", force: :cascade do |t|
-    t.boolean "opener"
     t.bigint "concert_id"
     t.bigint "band_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "opener_id"
     t.index ["band_id"], name: "index_concert_bands_on_band_id"
     t.index ["concert_id"], name: "index_concert_bands_on_concert_id"
   end

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
         resources :concerts
       end
       resources :concerts
+      resources :band
     end
   end
 

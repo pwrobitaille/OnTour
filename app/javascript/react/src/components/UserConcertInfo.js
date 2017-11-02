@@ -19,22 +19,25 @@ componentDidMount(){
     return response.json()
   })
   .then(body => {
-    this.setState({concerts: body})
+     this.setState({concerts: body})
   })
 }
 
   render(){
     let concerts = this.state.concerts.map(concert =>{
+      let concertData = concert.concert[0]
+      let bandData = concert.concert[1]
+      let openerData = bandData.opener
       return(
           <ConcertTile
-            id={concert.id}
-            band={concert.band}
-            year={concert.year}
-            venue={concert.venue}
-            opener={concert.opener}
-            attendees={concert.attendees}
-            notes={concert.notes}
-            setlist={concert.setlist}
+            id={concertData.id}
+            band={bandData.bands.name}
+            year={concertData.year}
+            venue={concertData.venue}
+            opener={openerData}
+            attendees={concertData.attendees}
+            notes={concertData.notes}
+            setlist={concertData.setlist}
           />
         )
       })
