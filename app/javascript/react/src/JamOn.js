@@ -20,7 +20,7 @@ class JamOn extends Component {
     let currentUserId = rootDiv.dataset.currentUserId
     return(
       <div>
-        <NavBar />
+        {/* <NavBar /> */}
         <Switch>
           <Route exact path='/users/:id' component={UserHomePage} />
           <Route exact path='/users/:id/concerts' component={UserConcertInfo} />
