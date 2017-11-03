@@ -19,7 +19,7 @@ componentDidMount(){
     return response.json()
   })
   .then(body => {
-     this.setState({concerts: body})
+     this.setState({concerts: body.sort((a, b) => a.created_at < b.created_at)})
   })
 }
 

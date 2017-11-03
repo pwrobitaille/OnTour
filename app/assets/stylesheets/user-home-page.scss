@@ -128,6 +128,7 @@ $translucent-form-overlay-max-width: 800px;
 
 .data-points {
   margin: -10px 50px 0px 60px;
+  color: white;
   border-style: solid;
   border-color: #053A5D;
   border-width: medium;
@@ -135,13 +136,28 @@ $translucent-form-overlay-max-width: 800px;
 }
 
 .top-artist {
-  color: white;
+  border-style: solid;
+  border-color: #053A5D;
+  border-radius: 50px;
+  background-color: #053A5D;
 }
 
 .top-venue {
-  color: white;
+  border-style: solid;
+  border-color: #053A5D;
+  border-radius: 50px;
+  background-color: #053A5D;
+
 }
 
 .shows-per-year {
-  color: white;
+  border-style: solid;
+  border-color: #053A5D;
+  border-radius: 50px;
+  background-color: #053A5D;
+
+}
+
+.no-scroll {
+
 }

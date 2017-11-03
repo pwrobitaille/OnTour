@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Route, Switch, NavLink } from 'react-router-dom';
 import ConcertFormContainer from './ConcertFormContainer'
 import UserConcertInfo from '../components/UserConcertInfo'
+import RecentConcert from '../components/RecentConcert'
 
 
 
@@ -35,14 +36,31 @@ class UserHomePage extends Component {
       return response.json()
     })
     .then(body => {
-      this.setState({concerts: body})
+      this.setState({concerts: body.sort((a, b) => a.id < b.id)})
     })
   }
 
 
   render(){
+    let concerts = this.state.concerts.map(concert =>{
+      let concertData = concert.concert[0]
+      let bandData = concert.concert[1]
+      let openerData = bandData.opener
+      return(
+          <RecentConcert
+            id={concertData.id}
+            band={bandData.bands.name}
+            year={concertData.year}
+            venue={concertData.venue}
+            opener={openerData}
+            attendees={concertData.attendees}
+            notes={concertData.notes}
+            setlist={concertData.setlist}
+          />
+        )
+      })
     return(
-      <div>
+      <div className="no-scroll">
         <div className="user-info-div">
         <div className="user-concert-block">
           <div className="left-block">
@@ -62,7 +80,8 @@ class UserHomePage extends Component {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="table-expand-row" data-open-details>
+                  {concerts}
+                  {/* <tr className="table-expand-row" data-open-details>
                     <td>August 15</td>
                     <td>Phish</td>
                     <td>Madison Square Garden</td>
@@ -81,8 +100,8 @@ class UserHomePage extends Component {
                     <td>Tedeschi Trucks Band</td>
                     <td>Red Rocks Amphatheater</td>
                     <td>setlist</td>
-                  </tr>
-
+                  </tr> */}
+{/*
                   <tr className="table-expand-row" data-open-details>
                     <td>June 15</td>
                     <td>Tedeschi Trucks Band</td>
@@ -95,7 +114,7 @@ class UserHomePage extends Component {
                     <td>Tedeschi Trucks Band</td>
                     <td>Red Rocks Amphatheater</td>
                     <td>setlist</td>
-                  </tr>
+                  </tr> */}
                 </tbody>
               </table>
             </div>
@@ -112,9 +131,9 @@ class UserHomePage extends Component {
 
         <div className="grid-x">
           <div className="data-points">
-            <div className="top-artist">Top Artist</div>
-            <div className="top-venue">Top Venue</div>
-            <div className="shows-per-year">Number of shows by year</div>
+            <span className="small-3 cell small-offset-2 top-artist">Top Artist</span>
+            <span className="small-3 cell small-offset-3 top-venue">Top Venue</span>
+            <span className="small-3 cell small-offset-3  shows-per-year">Number of shows by year</span>
           </div>
         </div>
       </div>

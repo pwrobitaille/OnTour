@@ -10,7 +10,7 @@ const ConcertTile = (props) => {
       <td>{props.opener}</td>
       <td>{props.attendees}</td>
       <td>{props.notes}</td>
-      <td><a target='_blank' href='${props.setlist}'>Setlist</a></td>
+      <td><a target='_blank' href={`${props.setlist}`}>Setlist</a></td>
     </tr>
   )
 }
