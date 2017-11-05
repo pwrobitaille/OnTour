@@ -2,7 +2,7 @@ import React from 'react'
 
 const InputField = (props) => {
   return(
-    <div className="grid-x">
+    <div>
         <label>{props.label}
           <input
             name={props.name}

@@ -95,7 +95,7 @@ class ConcertFormContainer extends Component {
           <div className="add-new-concert-text">
           <h3 >Add New Concert</h3>
         </div>
-          <div className="grid-x cell">
+          <div>
             <InputField
               content={this.state.band}
               label="Band"
@@ -103,7 +103,7 @@ class ConcertFormContainer extends Component {
               handleChange={this.handleChange}
             />
           </div>
-          <div className="grid-x cell">
+          <div>
             <InputField
               content={this.state.concertYear}
               label="Year"
@@ -111,7 +111,7 @@ class ConcertFormContainer extends Component {
               handleChange={this.handleChange}
             />
           </div>
-          <div className="grid-x cell">
+          <div>
             <InputField
               content={this.state.concertVenue}
               label="Venue"
@@ -119,7 +119,7 @@ class ConcertFormContainer extends Component {
               handleChange={this.handleChange}
             />
           </div>
-          <div className="grid-x cell">
+          <div>
             <InputField
               content={this.state.concertOpener}
               label="Opener"
@@ -127,7 +127,7 @@ class ConcertFormContainer extends Component {
               handleChange={this.handleChange}
             />
           </div>
-          <div className="grid-x">
+          <div>
             <TextField
               content={this.state.concertAttendees}
               label="Attendees"
@@ -135,7 +135,7 @@ class ConcertFormContainer extends Component {
               handleChange={this.handleChange}
             />
             </div>
-            <div className="grid-x">
+            <div>
               <TextField
                 content={this.state.concertNotes}
                 label="Notes"
@@ -143,7 +143,7 @@ class ConcertFormContainer extends Component {
                 handleChange={this.handleChange}
               />
             </div>
-            <div className="grid-x">
+            <div>
               <InputField
                 content={this.state.concertSetlist}
                 label="Setlist"
@@ -151,7 +151,7 @@ class ConcertFormContainer extends Component {
                 handleChange={this.handleChange}
               />
             </div>
-          <button onClick={this.handleSubmit} type="button" className="primary button expanded form-submit-button">
+          <button onClick={this.handleSubmit} type="button" className="form-submit-button button">
             Submit
           </button>
         </form>

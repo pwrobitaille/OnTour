@@ -16,6 +16,13 @@ class Api::V1::ConcertsController < ApplicationController
   end
 
   def create
+    search_value = params[:search_value]
+    binding.pry
+    concert_search_result = Concert.where("lower(band) LIKE ?", "%#{search_value.downcase}%")
+    search_result = concert_search_result.to_json
+    search_result = JSON.parse(search_result)
+    render json: search_result
+
     Band.find_or_create_by(name: params["band"])
     opener = Band.find_or_create_by(name: params["opener"])
     band = Band.where(name: params["band"])[0]

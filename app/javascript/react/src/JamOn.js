@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { browserHistory, Route, Switch } from 'react-router-dom';
-import NavBar from './containers/NavBar'
 import Home from './containers/Home'
 import UserHomePage from './containers/UserHomePage'
 import ConcertFormContainer from './containers/ConcertFormContainer'
@@ -20,7 +19,6 @@ class JamOn extends Component {
     let currentUserId = rootDiv.dataset.currentUserId
     return(
       <div>
-        {/* <NavBar /> */}
         <Switch>
           <Route exact path='/users/:id' component={UserHomePage} />
           <Route exact path='/users/:id/concerts' component={UserConcertInfo} />

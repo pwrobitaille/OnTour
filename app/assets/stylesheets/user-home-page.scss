@@ -29,12 +29,21 @@ $translucent-form-overlay-max-width: 800px;
   border-color: #053A5D;
   border-width: medium;
   background-color: rgba(54, 54, 54, 0.8);
-
-
-  // overflow: hidden;
-  // min-height: 300px;
+  // padding-bottom: 55px;
+  // max-height: 100%
 }
+// .user-info-div-2 {
+//   margin: 30px 40px 0px 0px;
+//   border-style: solid;
+//   border-color: #053A5D;
+//   border-width: medium;
+//   background-color: rgba(54, 54, 54, 0.8);
+//   padding-bottom: 20px;
+// }
 
+#setlist {
+  color: blue;
+}
 
 
 
@@ -57,27 +66,53 @@ $translucent-form-overlay-max-width: 800px;
 }
 
 .user-info {
-  margin-top: 10px;
-  margin-bottom: 5px;
+  margin-top: 20px;
+  margin-left: 40px;
+  // margin-right: 40px;
+  // margin-bottom: 5px;
 }
 
 .user-image {
   height: 200px;
   width: 200px;
   border-style: solid;
+  border-radius: 100px;
   border-color: #053A5D;
+  align-self: center;
   object-position: center;
   object-fit:fill;
+  margin-top: 10px;
+  margin-left: 10px;
 }
 
 .user-details {
   color: white;
   font-size: 30px;
+  margin-left: 10px;
   text-align: center;
+
+}
+
+.show-counter {
+  color: white;
+  font-size: 30px;
+  margin-top: 20px;
+  // border-style: solid;
+  // border-radius: 100%;
+  // border-color: #053A5D;
+  margin-left: 70px;
+}
+
+.number-of-shows {
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  margin-left: 50px;
+
 }
 
 .recent-concerts {
-  text-decoration: underline;
+  font-size: 30px;
   color: white;
   border-style: solid;
   border-color: #053A5D;
@@ -87,13 +122,12 @@ $translucent-form-overlay-max-width: 800px;
   text-align: center;
   margin-right: 40px;
   margin-top: 30px;
-
-  // margin-left: 12%;
+  margin-left: 20px;;
 
 }
 
 .table-expand {
-  margin-top: 1rem;
+  margin-top: 5px;;
   margin-left: 1rem;
   margin-right: 1rem;
   // max-height: 200px;
@@ -124,38 +158,36 @@ $translucent-form-overlay-max-width: 800px;
 }
 
 .data-points {
-  margin: -10px 50px 0px 60px;
-  color: white;
-  border-style: solid;
-  border-color: #053A5D;
-  border-width: medium;
-  background-color: rgba(54, 54, 54, 0.8);
-  max-height: 400px;
+  margin-left: 40px;
+  margin-right: 40px;
+  // max-height: 300px;
 }
 
 .top-artist {
-  border-style: solid;
-  border-color: #053A5D;
-  border-radius: 50px;
-  background-color: #053A5D;
+  // border-style: solid;
+  // border-color: #053A5D;
+  // border-radius: 50px;
+  // background-color: #053A5D;
+  text-align: center;
+  color: white;
+
 }
 
 .top-venue {
-  border-style: solid;
-  border-color: #053A5D;
-  border-radius: 50px;
-  background-color: #053A5D;
-
+  // border-style: solid;
+  // border-color: #053A5D;
+  // border-radius: 50px;
+  // background-color: #053A5D;
+  text-align: center;
+  color: white;
 }
 
 .shows-per-year {
-  border-style: solid;
-  border-color: #053A5D;
-  border-radius: 50px;
-  background-color: #053A5D;
-
-}
-
-.no-scroll {
+  // border-style: solid;
+  // border-color: #053A5D;
+  // border-radius: 50px;
+  // background-color: #053A5D;
+  text-align: center;
+  color: white;
 
 }
