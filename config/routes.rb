@@ -8,10 +8,14 @@ Rails.application.routes.draw do
       end
       resources :concerts
       resources :band
+      resources :top_band
+      resources :top_venue
+
     end
   end
 
   get 'auth/:provider/callback',  to: 'sessions#create'
+  get 'logout',                   to: 'sessions#destroy'
 
   get '*path', to: 'static_files#index'
 

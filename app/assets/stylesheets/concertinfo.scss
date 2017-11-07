@@ -1,0 +1,50 @@
+.search-bar {
+  width: 40%;
+  margin: auto;
+}
+
+.concert-table-div {
+  margin: 40px 50px 0px 40px;
+  padding: 10px;
+  background-color: rgba(54, 54, 54, 0.8);
+  overflow: hidden;
+  max-height: 600px;
+}
+
+
+.concert-table {
+	width: 100%;
+  // float: left;
+  display: block;
+  overflow-y: scroll;
+  max-height: 530px;
+}
+
+.table-row {
+  display: block;
+  height: auto;
+}
+
+.table-data {
+  display: block;
+}
+
+table {
+	width: 100%;
+}
+
+#setlist {
+  color: blue;
+}
+
+a {
+  color: white
+}
+
+// tbody tr:nth-child(2n) {
+//   background: blue;
+// }
+
+tbody tr:hover {
+  background: #053A5D;
+}

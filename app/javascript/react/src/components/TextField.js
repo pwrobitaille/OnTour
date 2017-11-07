@@ -2,7 +2,7 @@ import React from 'react'
 
 const TextField = (props) => {
   return(
-    <div className="grid-x">
+    <div>
         <label>{props.label}
           <textarea
             name={props.name}

@@ -6,4 +6,11 @@ class Concert < ApplicationRecord
   has_many :userconcerts
   has_many :users, through: :userconcerts
 
+  def self.most_active_venues(limit)
+    Concert.group(:venue).order("count_id DESC").limit(limit).count(:id)
+
+  end
+
+  
+
 end

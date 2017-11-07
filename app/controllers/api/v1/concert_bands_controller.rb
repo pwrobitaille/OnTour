@@ -10,7 +10,6 @@ class Api::V1::ConcertBandsController < ApplicationController
     @band = Band.find_by(id: params[:id])
     @concert = Concert.find_by(id: params[:id])
     @concertbands = ConcertBand.new
-    binding.pry
 
   end
 

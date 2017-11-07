@@ -1,5 +1,5 @@
 body {
-  background-image: url(https://imagecache.tourgigs.com/wp-content/uploads/showpage_n2.jpg);
+  background-image: url(yvette-de-wit-118721.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -8,49 +8,42 @@ body {
 
 
 .jam-on-logo {
-  color: white;
-  float: left;
-  font-size: 20px;
+  font-size: 25px;
+  margin-top: 20px;
+  margin-left: 40px;
 }
-.jam-on-logo:hover {
+div.jam-on-logo:hover {
   color: #053A5D;
-  float: left;
 }
 .jam-on-logo:focus {
   color: white;
-  float: left;
+}
+div.jam-on-logo {
+  color: white;
 }
 
 .sign-in {
-  color: white;
-  float: right;
-  font-size: 20px;
+  font-size: 25px;
+  text-align: right;
+  margin-top: 20px;
+  margin-right: 40px;
 }
 .sign-in:hover {
   color: #053A5D;
-  float: right;
 }
 .sign-in:focus {
-  color: #053A5D;
-  float: right;
+  color: white;
 }
 
 .jam-on-title {
   text-align: center;
-  margin-top: 3%;
+  margin-top: 60px;
   font-size: 70px;
   color: #053A5D;
 }
 
 .top-bar {
   background: none;
-  padding: 0 20px 0 20px;
-  margin: 0 40px 0 40px;
-  // border-style: solid;
-  // border-top: none;
-  position: fixed;
-  width: 95%;
-  top: 0;
 
 }
 
@@ -73,14 +66,4 @@ border-width: thin;
 border-style: solid;
 border-color: #053A5D;
 
-}
-
-.concert-data-button {
-  background: none;
-  font-size: 20px;
-  border-radius: 50px;
-  background: none;
-  border-width: thin;
-  border-style: solid;
-  border-color: #053A5D;
 }

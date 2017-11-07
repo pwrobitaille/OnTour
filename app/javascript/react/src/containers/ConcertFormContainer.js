@@ -9,13 +9,15 @@ class ConcertFormContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      user: [],
+      concerts: [],
       band: "",
       concertYear: "",
       concertVenue: "",
       concertOpener: "",
       concertAttendees: "",
       concertNotes: "",
-      concertSetlist: "",
+      concertSetlist: ""
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -44,9 +46,19 @@ class ConcertFormContainer extends Component {
     })
   }
 
-  redirect(){
-
+  componentDidMount() {
+    fetch(`/api/v1/users/`, {
+      credentials: "same-origin",
+      headers: {"Content-Type": "application/json"}
+    })
+    .then(response => {
+      return response.json()
+    })
+    .then(body => {
+      this.setState({user: body.user})
+    })
   }
+
 
   addNewConcert(formPayLoad) {
     fetch(`/api/v1/concerts`, {
@@ -59,17 +71,17 @@ class ConcertFormContainer extends Component {
       return response.json()
     })
     .then(body => {
-      this.setState({
-        band: body.band.name,
-        concertYear: body.concert.year,
-        concertVenue: body.concert.venue,
-        concertOpener: body.opener,
-        concertAttendees: body.concert.attendees,
-        concertNotes: body.concert.notes,
-        concertSetlist: body.concert.setlist
+        this.setState({
+          band: body.band,
+          concertYear: body.year,
+          concertVenue: body.venue,
+          concertOpener: body.opener,
+          concertAttendees: body.attendees,
+          concertNotes: body.notes,
+          concertSetlist: body.setlist
+        })
       })
-    })
-    this.props.history.push('/users/:id')
+    this.props.history.push(`/users/${this.state.user.id}`)
   }
 
 
@@ -95,7 +107,7 @@ class ConcertFormContainer extends Component {
           <div className="add-new-concert-text">
           <h3 >Add New Concert</h3>
         </div>
-          <div className="grid-x cell">
+          <div>
             <InputField
               content={this.state.band}
               label="Band"
@@ -103,7 +115,7 @@ class ConcertFormContainer extends Component {
               handleChange={this.handleChange}
             />
           </div>
-          <div className="grid-x cell">
+          <div>
             <InputField
               content={this.state.concertYear}
               label="Year"
@@ -111,7 +123,7 @@ class ConcertFormContainer extends Component {
               handleChange={this.handleChange}
             />
           </div>
-          <div className="grid-x cell">
+          <div>
             <InputField
               content={this.state.concertVenue}
               label="Venue"
@@ -119,7 +131,7 @@ class ConcertFormContainer extends Component {
               handleChange={this.handleChange}
             />
           </div>
-          <div className="grid-x cell">
+          <div>
             <InputField
               content={this.state.concertOpener}
               label="Opener"
@@ -127,7 +139,7 @@ class ConcertFormContainer extends Component {
               handleChange={this.handleChange}
             />
           </div>
-          <div className="grid-x">
+          <div>
             <TextField
               content={this.state.concertAttendees}
               label="Attendees"
@@ -135,7 +147,7 @@ class ConcertFormContainer extends Component {
               handleChange={this.handleChange}
             />
             </div>
-            <div className="grid-x">
+            <div>
               <TextField
                 content={this.state.concertNotes}
                 label="Notes"
@@ -143,7 +155,7 @@ class ConcertFormContainer extends Component {
                 handleChange={this.handleChange}
               />
             </div>
-            <div className="grid-x">
+            <div>
               <InputField
                 content={this.state.concertSetlist}
                 label="Setlist"
@@ -151,7 +163,7 @@ class ConcertFormContainer extends Component {
                 handleChange={this.handleChange}
               />
             </div>
-          <button onClick={this.handleSubmit} type="button" className="primary button expanded form-submit-button">
+          <button onClick={this.handleSubmit} type="button" className="form-submit-button button">
             Submit
           </button>
         </form>

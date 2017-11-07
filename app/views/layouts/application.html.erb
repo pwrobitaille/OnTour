@@ -4,11 +4,30 @@
     <title>OnTour</title>
     <%= csrf_meta_tags %>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.2/css/foundation.min.css">
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+
   </head>
 
   <body>
+    <div class="grid-x">
+        <div class="small-6 cell">
+          <div class="jam-on-logo">
+            <%= link_to "OnTour", "/" %>
+          </div>
+        </div>
+        <div class="small-6 cell">
+          <div class="sign-in">
+          <% if current_user %>
+            <%= link_to "Sign Out", logout_path %>
+          <% else %>
+            <%= link_to "Sign In", "/auth/google" %>
+            <% end %>
+          </div>
+        </div>
+    </div>
     <%= yield %>
+
   </body>
 </html>
