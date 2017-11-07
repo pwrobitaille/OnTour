@@ -22,7 +22,7 @@ class JamOn extends Component {
         <Switch>
           <Route exact path='/users/:id' component={UserHomePage} />
           <Route exact path='/users/:id/concerts' component={UserConcertInfo} />
-          <Route path='/users/:id/new-concert' component={ConcertFormContainer} />
+          <Route exact path='/users/:id/new-concert' component={ConcertFormContainer} />
           <Route path='/' component={Home}/>
         </Switch>
       </div>

@@ -55,6 +55,7 @@ class ConcertFormContainer extends Component {
       return response.json()
     })
     .then(body => {
+      debugger
       this.setState({user: body.user})
     })
   }

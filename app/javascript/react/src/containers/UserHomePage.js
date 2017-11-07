@@ -38,7 +38,6 @@ class UserHomePage extends Component {
       return response.json()
     })
     .then(body => {
-      debugger
       this.setState({topBand: body.band.name, topBandNumber: body.number_of_shows})
     })
     fetch(`/api/v1/top_venue`, {
@@ -56,6 +55,7 @@ class UserHomePage extends Component {
 
   render(){
 
+
     let concertNumber = this.state.concerts.length
 
     // for (const [key, value] of Object.entries(this.state.showsPerYear)) {
@@ -69,7 +69,6 @@ class UserHomePage extends Component {
     // })
 
     // let venueName = Object.keys(this.state.topVenue);
-    // debugger
 
 
     // let topVenue = this.state.topVenue.map(venue => {
@@ -135,10 +134,10 @@ class UserHomePage extends Component {
         </div>
         <div className="grid-x">
           <div className="small-3 small-offset-3 cells">
-            <NavLink to={`/users/1/new-concert`} className="add-new-concert-button button">Add New Concert </NavLink>
+            <NavLink to={`/users/${this.state.user.id}/new-concert`} className="add-new-concert-button button">Add New Concert </NavLink>
           </div>
           <div className="small-3 small-offset-1 cells">
-            <NavLink to={`/users/1/concerts`} className="add-new-concert-button button">See All Concerts</NavLink>
+            <NavLink to={`/users/${this.state.user.id}/concerts`} className="add-new-concert-button button">See All Concerts</NavLink>
           </div>
         </div>
 
