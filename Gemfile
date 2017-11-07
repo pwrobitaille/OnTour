@@ -9,7 +9,7 @@ gem 'webpacker-react', "~> 0.3.2"
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'foundation-rails'
-gem 'omniauth-google-oauth2'
+gem 'omniauth-google-oauth2', "~> 0.4.1"
 gem 'figaro'
 gem 'active_model_serializers', '~> 0.10.0'
 

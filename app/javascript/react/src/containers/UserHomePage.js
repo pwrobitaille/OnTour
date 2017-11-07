@@ -5,20 +5,22 @@ import UserConcertInfo from '../components/UserConcertInfo'
 import RecentConcert from '../components/RecentConcert'
 
 
-
-
 class UserHomePage extends Component {
   constructor(props) {
     super(props)
     this.state = {
       user: [],
-      concerts:[]
+      concerts:[],
+      topBand: [],
+      topBandNumber: "",
+      topVenue: [],
+      showsPerYear: []
     }
 
   }
 
   componentDidMount(){
-    fetch(`/api/v1/users/`, {
+    fetch(`/api/v1/users`, {
       credentials: "same-origin",
       headers: {"Content-Type": "application/json"}
     })
@@ -26,9 +28,9 @@ class UserHomePage extends Component {
       return response.json()
     })
     .then(body => {
-      this.setState({user: body})
+      this.setState({user: body.user, concerts: body.concert, showsPerYear: body.showsPerYear, topVenue: body.topVenue})
     })
-    fetch(`/api/v1/concerts`, {
+    fetch(`/api/v1/top_band`, {
       credentials: "same-origin",
       headers: {"Content-Type": "application/json"}
     })
@@ -36,20 +38,45 @@ class UserHomePage extends Component {
       return response.json()
     })
     .then(body => {
-      this.setState({concerts: body.sort((a, b) => a.id < b.id)})
+      debugger
+      this.setState({topBand: body.band.name, topBandNumber: body.number_of_shows})
+    })
+    fetch(`/api/v1/top_venue`, {
+      credentials: "same-origin",
+      headers: {"Content-Type": "application/json"}
+    })
+    .then(response => {
+      return response.json()
+    })
+    .then(body => {
+      this.setState({topVenue: body.venue, topVenueNumber: body.number_of_shows})
     })
   }
 
 
   render(){
+
     let concertNumber = this.state.concerts.length
-    // let topArtist = this.state.concerts.bands
 
-    // let recentConcerts = this.state.concerts.slice(Math.max(this.state.concerts.length - 5))
-    // let recentConcerts = this.state.concerts.prototype.slice(-5)
+    // for (const [key, value] of Object.entries(this.state.showsPerYear)) {
+    //   let year = key
+    //   let number = value
+    //   debugger
+    // }
+
+    // let showsEachYear = this.state.showsPerYear.map(show => {
+    //   debugger
+    // })
+
+    // let venueName = Object.keys(this.state.topVenue);
+    // debugger
 
 
-
+    // let topVenue = this.state.topVenue.map(venue => {
+    //   debugger
+    //   let topVenueName = venue.venue[0]
+    //   // let topVenueNumber = venue.venue[0].
+    // })
 
     let concerts = this.state.concerts.map(concert =>{
       let concertData = concert.concert[0]
@@ -69,7 +96,9 @@ class UserHomePage extends Component {
         )
       })
 
-      let recentConcerts = concerts.slice(-5)
+      let reverseConcerts = concerts.reverse()
+      let recentConcerts = reverseConcerts.slice(0, 5)
+
     return(
     <div>
       <div className="grid-x">
@@ -80,12 +109,13 @@ class UserHomePage extends Component {
               </div>
             </div>
           </div>
-          <div className="small-1 cell">
-            <div className="show-counter">Concerts
-            <div className="number-of-shows">{concertNumber}</div>
+          <div className="small-3 cell number-of-shows">
+            <div className="show-counter">
+              <div>Concerts</div>
+              <div className="show-total">{concertNumber}</div>
             </div>
           </div>
-        <div className="small-8 cell small-offset-1">
+        <div className="small-7 cell">
             <div className="recent-concerts">Recent Concerts
               <table className="table-expand">
                 <thead>
@@ -115,41 +145,48 @@ class UserHomePage extends Component {
       <div className="data-points">
         <div className="grid-y">
           <div className="grid-x grid-padding-x">
-            <div className="cell medium-4 top-artist">
-              Top Artist
+            <div className="cell medium-3 small-offset-1">
+              <div className="top-artist">
+                Top Artist
+                <h2>{this.state.topBand}</h2>
+                <p className="number">{this.state.topBandNumber}</p>
+              </div>
             </div>
-            <div className="cell medium-4 medium-cell-block top-venue">
-              Top Venue
+            <div className="cell medium-4 medium-cell-block">
+              <div className="top-venue">
+                Top Venue
+                <h2>{this.state.topVenue.toString()}</h2>
+                <p className="number">{this.venueNumber}</p>
+              </div>
             </div>
-            <div className="cell medium-4 shows-per-year">
-              Shows Each Year
+              <div className="cell medium-3">
+                <div className="show-table">
+                <div>
+                  Shows Each Year
+                </div>
+                <table >
+                  <thead>
+                    <tr>
+                      <th width="50">Date</th>
+                      <th width="50">Count</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Test</td><td>23</td>
+                    </tr>
+                    <tr>
+                      <td>Test</td><td>23</td>
+                    </tr>
+                    <tr>
+                      <td>Test</td><td>23</td>
+                    </tr>
+                    {/* {concerts} */}
+                  </tbody>
+                </table>
+              </div>
             </div>
-          </div>
-        </div>
-        <div className="cell medium-auto medium-cell-block-container">
-          <div className="grid-x grid-padding-x">
-            <div className="cell medium-4 medium-cell-block-y top-artist">
-              <h2>Phish</h2>
-              <p>11</p>
-            </div>
-            <div className="cell medium-4 medium-cell-block-y top-venue">
-              <h2>9:30 Club</h2>
-              <p>10</p>
-            </div>
-            <div className="cell medium-4 medium-cell-block-y top-venue shows-per-year">
-              <table className="table-expand">
-                <thead>
-                  <tr className="table-expand-row">
-                    <th width="50">Date</th>
-                    <th width="50">Count</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {/* {concerts} */}
-                </tbody>
-              </table>
-            </div>
-          </div>
+          </div>;
         </div>
       </div>
     </div>

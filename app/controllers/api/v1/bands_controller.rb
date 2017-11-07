@@ -6,8 +6,7 @@ class Api::V1::BandsController < ApplicationController
 
   def create
     @band = Band.create(band_params)
-    binding.pry
-    render json: @band 
+    render json: @band
   end
 
   def band_params

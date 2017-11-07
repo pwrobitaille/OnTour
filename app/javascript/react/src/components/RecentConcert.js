@@ -6,7 +6,7 @@ const RecentConcert = (props) => {
       <td>{props.year}</td>
       <td>{props.band}</td>
       <td>{props.venue}</td>
-      <td><a target='_blank' href={`${props.setlist}`}>Setlist</a></td>
+      <td><a id="setlist" target='_blank' href={`${props.setlist}`}>Setlist</a></td>
     </tr>
   )
 }

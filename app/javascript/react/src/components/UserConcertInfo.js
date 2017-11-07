@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ConcertTile from './ConcertTile'
-import List from 'list.js'
+
 
 class UserConcertInfo extends Component {
   constructor(props) {
@@ -22,7 +22,7 @@ class UserConcertInfo extends Component {
       return response.json()
     })
     .then(body => {
-       this.setState({concerts: body.sort((a, b) => a.created_at < b.created_at)})
+       this.setState({concerts: body})
     })
   }
 
@@ -47,6 +47,9 @@ class UserConcertInfo extends Component {
     }
   }
 
+
+
+
   render(){
 
     let concerts = this.state.concerts.map(concert =>{
@@ -66,33 +69,35 @@ class UserConcertInfo extends Component {
           />
         )
       })
+
+      let reverseConcerts = concerts.reverse()
+
       return(
         <div>
-
-        {/* <div className='search-bar'>
+          <div className='search-bar'>
             <input onChange={this.handleChange} value={this.state.search_value} type='search' placeholder='Search All Concerts' />
           </div>
          <div className="concert-table-div">
-           <table className="table-expand">
+           <table>
              <thead>
-               <tr className="table-expand-row">
-                 <th width="50">Number</th>
-                 <th width="100">Date</th>
-                 <th width="200">Concert</th>
-                 <th width="200">Venue</th>
-                 <th width="150">Opener</th>
-                 <th width="220">Attendees</th>
-                 <th width="300">Notes</th>
-                 <th width="100">Setlist</th>
+               <tr className="table-row">
+                 <th width="50" className="table-header">Number</th>
+                 <th width="100" className="table-header">Date</th>
+                 <th width="200" className="table-header">Concert</th>
+                 <th width="200" className="table-header">Venue</th>
+                 <th width="150" className="table-header">Opener</th>
+                 <th width="220" className="table-header">Attendees</th>
+                 <th width="300" className="table-header">Notes</th>
+                 <th width="100" className="table-header">Setlist</th>
                </tr>
              </thead>
-             <tbody className="table-expand-row" data-open-details>
-               {concerts}
+             <tbody className="concert-table">
+               {reverseConcerts}
              </tbody>
            </table>
-         </div> */}
+         </div>
       </div>
-      )
-    }
+    )
+  }
 }
 export default UserConcertInfo

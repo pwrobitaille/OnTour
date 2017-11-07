@@ -9,13 +9,15 @@ class ConcertFormContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      user: [],
+      concerts: [],
       band: "",
       concertYear: "",
       concertVenue: "",
       concertOpener: "",
       concertAttendees: "",
       concertNotes: "",
-      concertSetlist: "",
+      concertSetlist: ""
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -44,9 +46,19 @@ class ConcertFormContainer extends Component {
     })
   }
 
-  redirect(){
-
+  componentDidMount() {
+    fetch(`/api/v1/users/`, {
+      credentials: "same-origin",
+      headers: {"Content-Type": "application/json"}
+    })
+    .then(response => {
+      return response.json()
+    })
+    .then(body => {
+      this.setState({user: body.user})
+    })
   }
+
 
   addNewConcert(formPayLoad) {
     fetch(`/api/v1/concerts`, {
@@ -59,17 +71,17 @@ class ConcertFormContainer extends Component {
       return response.json()
     })
     .then(body => {
-      this.setState({
-        band: body.band.name,
-        concertYear: body.concert.year,
-        concertVenue: body.concert.venue,
-        concertOpener: body.opener,
-        concertAttendees: body.concert.attendees,
-        concertNotes: body.concert.notes,
-        concertSetlist: body.concert.setlist
+        this.setState({
+          band: body.band,
+          concertYear: body.year,
+          concertVenue: body.venue,
+          concertOpener: body.opener,
+          concertAttendees: body.attendees,
+          concertNotes: body.notes,
+          concertSetlist: body.setlist
+        })
       })
-    })
-    this.props.history.push('/users/:id')
+    this.props.history.push(`/users/${this.state.user.id}`)
   }
 
 

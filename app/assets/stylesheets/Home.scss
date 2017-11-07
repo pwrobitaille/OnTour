@@ -12,7 +12,7 @@ body {
   margin-top: 20px;
   margin-left: 40px;
 }
-.jam-on-logo:hover {
+div.jam-on-logo:hover {
   color: #053A5D;
 }
 .jam-on-logo:focus {
@@ -37,20 +37,13 @@ div.jam-on-logo {
 
 .jam-on-title {
   text-align: center;
-  margin-top: 80px;
+  margin-top: 60px;
   font-size: 70px;
   color: #053A5D;
 }
 
 .top-bar {
   background: none;
-  // padding: 0 20px 0 20px;
-  // margin: 10px 40px 0px 40px;
-  // border-style: solid;
-  // border-top: none;
-  // position: fixed;
-  // width: 95%;
-  // top: 0;
 
 }
 
@@ -73,14 +66,4 @@ border-width: thin;
 border-style: solid;
 border-color: #053A5D;
 
-}
-
-.concert-data-button {
-  background: none;
-  font-size: 20px;
-  border-radius: 50px;
-  background: none;
-  border-width: thin;
-  border-style: solid;
-  border-color: #053A5D;
 }
