@@ -12,17 +12,10 @@ class Api::V1::ConcertsController < ApplicationController
 
 
   def show
-    # @concert = Concert.find(params[:id])
-    # @bands = @concert.bands
-    # render json: @bands
+
   end
 
   def create
-    # search_value = params[:search_value]
-    # concert_search_result = Concert.where(params[:venue], "%#{search_value.downcase}%") || Band.where(params[:name], "%#{search_value.downcase}%")
-    # search_result = concert_search_result.to_json
-    # search_result = JSON.parse(search_result)
-    # render json: search_result
 
     Band.find_or_create_by(name: params["band"])
     opener = Band.find_or_create_by(name: params["opener"])

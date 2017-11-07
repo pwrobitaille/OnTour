@@ -4,17 +4,17 @@
 }
 
 .concert-table-div {
-  margin: 40px 50px 0px 40px;
+  margin: 40px 50px 0px 50px;
   padding: 10px;
   background-color: rgba(54, 54, 54, 0.8);
   overflow: hidden;
   max-height: 600px;
+  border-radius: 10px;
 }
 
 
 .concert-table {
 	width: 100%;
-  // float: left;
   display: block;
   overflow-y: scroll;
   max-height: 530px;
@@ -41,10 +41,17 @@ a {
   color: white
 }
 
-// tbody tr:nth-child(2n) {
-//   background: blue;
-// }
 
 tbody tr:hover {
   background: #053A5D;
+}
+
+input.light-table-filter {
+  width: 40%;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.container {
+  width: 50px;
 }

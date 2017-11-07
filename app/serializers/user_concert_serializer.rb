@@ -1,4 +1,4 @@
-class ConcertSerializer < ActiveModel::Serializer
+class UserConcertSerializer < ActiveModel::Serializer
   attributes :id
 
   def self.bands(concerts)
@@ -7,7 +7,7 @@ class ConcertSerializer < ActiveModel::Serializer
       concerts.each do |concert|
         concert_band = ConcertBand.where(concert_id: concert.id)[0]
         if Band.where(id: concert_band.opener_id).empty?
-          opener_band = ""
+          opener_band = "None"
         else
           opener_band = Band.find(concert_band.opener_id).name
         end

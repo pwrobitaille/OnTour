@@ -61,7 +61,7 @@ class ConcertFormContainer extends Component {
 
 
   addNewConcert(formPayLoad) {
-    fetch(`/api/v1/concerts`, {
+    fetch(`/api/v1/users/${this.state.user.id}/concerts`, {
       method: "POST",
       body: JSON.stringify(formPayLoad),
       credentials: "same-origin",
@@ -80,8 +80,8 @@ class ConcertFormContainer extends Component {
           concertNotes: body.notes,
           concertSetlist: body.setlist
         })
+        this.props.history.push(`/users/${this.state.user.id}`)
       })
-    this.props.history.push(`/users/${this.state.user.id}`)
   }
 
 
