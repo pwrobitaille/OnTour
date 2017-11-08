@@ -61,7 +61,7 @@ class ConcertFormContainer extends Component {
 
 
   addNewConcert(formPayLoad) {
-    fetch(`/api/v1/users/${this.state.user.id}/concerts`, {
+    fetch(`/api/v1//concerts`, {
       method: "POST",
       body: JSON.stringify(formPayLoad),
       credentials: "same-origin",

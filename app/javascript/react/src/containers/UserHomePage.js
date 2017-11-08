@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { Route, Switch, NavLink } from 'react-router-dom';
+import CountTo from 'react-count-to';
 import ConcertFormContainer from './ConcertFormContainer'
 import UserConcertInfo from '../components/UserConcertInfo'
 import RecentConcert from '../components/RecentConcert'
 import TopBandShow from '../components/TopBandShow'
 import TopVenue from '../components/TopVenue'
 import ShowsPerYear from '../components/ShowsPerYear'
+
 
 
 class UserHomePage extends Component {
@@ -30,6 +32,7 @@ class UserHomePage extends Component {
       return response.json()
     })
     .then(body => {
+      debugger
       this.setState({user: body.user, concerts: body.concert, topBandShows: body.topBandShows, showsPerYear: body.showsPerYear, topVenue: body.topVenue})
     })
   }
@@ -38,6 +41,7 @@ class UserHomePage extends Component {
   render(){
 
     let concertNumber = this.state.concerts.length
+
 
     let concerts = this.state.concerts.map(concert =>{
       let concertData = concert.concert[0]
@@ -77,7 +81,6 @@ class UserHomePage extends Component {
       })
 
       let showsPerYear = this.state.showsPerYear.map(showPerYear => {
-        debugger
         return(
           <ShowsPerYear
             year={showPerYear.year}
@@ -102,15 +105,15 @@ class UserHomePage extends Component {
           <div className="small-3 cell number-of-shows">
             <div className="show-counter">
               <div>Concerts</div>
-              <div className="show-total">{concertNumber}</div>
+              <div className="show-total"><CountTo to={concertNumber} speed={1000} /></div>
             </div>
           </div>
         <div className="small-7 cell">
             <div className="recent-concerts">Recent Concerts
-              <table className="table-expand">
-                <thead>
+              <table className="table-expand unstriped hover ">
+                <thead className="thead">
                   <tr className="table-expand-row">
-                    <th width="100">Date</th>
+                    <th width="50">Date</th>
                     <th width="200">Concert</th>
                     <th width="200">Venue</th>
                     <th width="100">Setlist</th>
@@ -124,43 +127,44 @@ class UserHomePage extends Component {
           </div>
         </div>
         <div className="grid-x">
-          <div className="small-3 small-offset-3 cells">
+          <div className="small-3 cells">
             <NavLink to={`/users/${this.state.user.id}/new-concert`} className="add-new-concert-button button">Add New Concert </NavLink>
           </div>
-          <div className="small-3 small-offset-1 cells">
-            <NavLink to={`/users/${this.state.user.id}/concerts`} className="add-new-concert-button button">See All Concerts</NavLink>
+          <div className="small-3 cells">
+            <NavLink to={`/users/${this.state.user.id}/concerts`} className="see-all-concert-button button">See All Concerts</NavLink>
           </div>
         </div>
 
       <div className="data-points">
         <div className="grid-y">
           <div className="grid-x grid-padding-x">
-            <div className="cell medium-3 small-offset-1">
-              {topBandShows}
-            </div>
-            <div className="cell medium-4 medium-cell-block">
-              {topVenue}
-            </div>
-              <div className="cell medium-3">
+              <div className="cell medium-3 medium-offset-1">
                 <div className="show-table">
                   <div>
                     Shows Each Year
                   </div>
                   <div className="shows-table">
-                  <table>
-                    <thead>
-                      <tr > <th width="50">Date</th>
+                  <table className="unstriped">
+                    <thead className="thead">
+                      <tr>
+                        <th width="50">Date</th>
                         <th width="50">Count</th>
                       </tr>
                     </thead>
-                    <tbody className="shows-by-year-table">
+                    <tbody className="shows-by-year-table hover">
                       {showsPerYear}
                     </tbody>
                   </table>
                 </div>
               </div>
             </div>
-          </div>;
+            <div className="cell medium-3 medium-offset-1">
+              {topBandShows}
+            </div>
+            <div className="cell medium-4">
+              {topVenue}
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -169,3 +173,38 @@ class UserHomePage extends Component {
 }
 
 export default UserHomePage
+
+
+//
+// <div className="data-points">
+//   <div className="grid-y">
+//     <div className="grid-x grid-padding-x">
+//       <div className="cell medium-3 small-offset-1">
+//         {topBandShows}
+//       </div>
+//       <div className="cell medium-4 medium-cell-block">
+//         {topVenue}
+//       </div>
+//         <div className="cell medium-3">
+//           <div className="show-table">
+//             <div>
+//               Shows Each Year
+//             </div>
+//             <div className="shows-table">
+//             <table>
+//               <thead className="thead">
+//                 <tr>
+//                   <th width="50">Date</th>
+//                   <th width="50">Count</th>
+//                 </tr>
+//               </thead>
+//               <tbody className="shows-by-year-table">
+//                 {showsPerYear}
+//               </tbody>
+//             </table>
+//           </div>
+//         </div>
+//       </div>
+//     </div>;
+//   </div>
+// </div>

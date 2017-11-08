@@ -4984,7 +4984,7 @@ promise@^7.0.3, promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@15.6.0, prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.6.0:
+prop-types@15.6.0, prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.8, prop-types@^15.6.0:
   version "15.6.0"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.0.tgz#ceaf083022fc46b4a35f69e13ef75aed0d639856"
   dependencies:
@@ -5126,6 +5126,23 @@ rc@^1.1.7:
 react-addons-test-utils@^15.6.2:
   version "15.6.2"
   resolved "https://registry.yarnpkg.com/react-addons-test-utils/-/react-addons-test-utils-15.6.2.tgz#c12b6efdc2247c10da7b8770d185080a7b047156"
+
+react-count-animation@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-count-animation/-/react-count-animation-1.1.1.tgz#6ef437f8cb24e4626537a7442b9c1fe99bd58104"
+  dependencies:
+    react "^0.14.7"
+    react-dom "^0.14.7"
+
+react-count-to@^0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/react-count-to/-/react-count-to-0.9.0.tgz#0949993c3f8f658f2594f9b77b17627f0bc361e1"
+  dependencies:
+    prop-types "^15.5.8"
+
+react-dom@^0.14.7:
+  version "0.14.9"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-0.14.9.tgz#05064a3dcf0fb1880a3b2bfc9d58c55d8d9f6293"
 
 react-dom@^16.0.0:
   version "16.0.0"

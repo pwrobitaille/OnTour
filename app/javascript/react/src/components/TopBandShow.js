@@ -1,13 +1,15 @@
 import React from 'react'
+import CountTo from 'react-count-to';
 
-const TopBandField = (props) => {
+
+const TopBandShow = (props) => {
   return(
     <div className="top-artist">
       Top Artist
-      <h2>{props.name}</h2>
-      <p className="number">{props.shows}</p>
+      <div className="top-band-name">{props.name}</div>
+      <p className="number"><CountTo to={props.shows} speed={1000} /></p>
     </div>
   )
 }
 
-export default TopBandField
+export default TopBandShow

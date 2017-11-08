@@ -12,6 +12,8 @@
     "list.js": "^1.5.0",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
+    "react-count-animation": "^1.1.1",
+    "react-count-to": "^0.9.0",
     "react-dom": "^16.0.0",
     "react-image": "^1.2.0",
     "react-router": "^4.2.0",

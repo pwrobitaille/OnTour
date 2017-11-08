@@ -4,22 +4,27 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  // font-family: 'Roboto Slab', serif;
+  font-family: 'Bree Serif', serif;
+
 }
 
+a {
+  color: white
+}
+
+a:hover {
+  color: #355C7D;
+}
+
+a:focus {
+  color: white;
+}
 
 .jam-on-logo {
   font-size: 25px;
   margin-top: 20px;
   margin-left: 40px;
-}
-div.jam-on-logo:hover {
-  color: #053A5D;
-}
-.jam-on-logo:focus {
-  color: white;
-}
-div.jam-on-logo {
-  color: white;
 }
 
 .sign-in {
@@ -29,7 +34,7 @@ div.jam-on-logo {
   margin-right: 40px;
 }
 .sign-in:hover {
-  color: #053A5D;
+  color: #355C7D;
 }
 .sign-in:focus {
   color: white;
@@ -37,33 +42,32 @@ div.jam-on-logo {
 
 .jam-on-title {
   text-align: center;
-  margin-top: 60px;
-  font-size: 70px;
-  color: #053A5D;
+  margin-top: 50px;
+  font-size: 80px;
+  color: #355C7D;
 }
 
 .top-bar {
   background: none;
-
 }
 
 .button:hover {
-  background: #053A5D;
+  background: #355C7D;
 }
 
 .button:focus {
-  background: #053A5D;
+  background: #355C7D;
 }
 
 .register-button {
-margin-top: 5%;
-padding-left: 39px;
-padding-right: 39px;
-background: none;
-font-size: 20px;
-border-radius: 50px;
-border-width: thin;
-border-style: solid;
-border-color: #053A5D;
+  padding-left: 39px;
+  padding-right: 39px;
+  background: none;
+  font-size: 20px;
+  border-radius: 50px;
+  border-width: thin;
+  border-style: solid;
+  border-color: #355C7D;
+  font-family: 'Bree Serif', serif;
 
 }
