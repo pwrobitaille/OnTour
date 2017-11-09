@@ -9,14 +9,13 @@ Rails.application.routes.draw do
       # resources :user_concerts
       resources :concerts
       resources :band
-      resources :top_band
-      resources :top_venue
 
     end
   end
 
   get 'auth/:provider/callback',  to: 'sessions#create'
   get 'logout',                   to: 'sessions#destroy'
+  get 'https://rest.bandsintown.com/artists/', to: 'bandsintown#create'
 
   get '*path', to: 'static_files#index'
 

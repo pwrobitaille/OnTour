@@ -3,7 +3,7 @@ $translucent-form-overlay-max-width: 800px;
 .translucent-form-overlay {
   max-width: $translucent-form-overlay-max-width;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 10px;
   background-color: rgba(54, 54, 54, 0.8);
   padding: 20px;
   color: white;
@@ -23,10 +23,15 @@ $translucent-form-overlay-max-width: 800px;
     color: dark-gray;
   }
 
-  button {
-    font-family: 'Bree Serif', serif;
+}
 
-  }
+button {
+  font-family: 'Bree Serif', serif;
+  background: none;
+}
+button:hover {
+  font-family: 'Bree Serif', serif;
+  background: none;
 }
 
 .user-info-div {
@@ -53,6 +58,8 @@ $translucent-form-overlay-max-width: 800px;
   margin: auto;
   background-color: #355C7D;
   border-radius: 50px;
+  font-family: 'Roboto Slab', serif;
+
 }
 
 .form-submit-button:hover {
@@ -157,7 +164,7 @@ $translucent-form-overlay-max-width: 800px;
   border-radius: 50px;
   margin-top: 10px;
   margin-left: 40px;
-  font-family: 'Bree Serif', serif;
+  font-family: 'Roboto Slab', serif;
 
 }
 
@@ -167,12 +174,18 @@ $translucent-form-overlay-max-width: 800px;
   border-radius: 50px;
   margin-top: 10px;
   margin-left: -50px;
-  font-family: 'Bree Serif', serif;
+  font-family: 'Roboto Slab', serif;
 
 }
 
 .data-points {
-  margin-top: 20px;
+  margin-top: 2\10px;
+}
+
+.top-title {
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: #355C7D;
 }
 
 .top-artist {
@@ -218,6 +231,7 @@ $translucent-form-overlay-max-width: 800px;
   padding-bottom: 5px;
   overflow: hidden;
   max-height: 250px;
+  margin-right: 20px;
 
 }
 
@@ -243,13 +257,20 @@ table tbody tr:hover td, .table tbody tr:hover th {
 
 .top-band-name {
   color: white;
-  font-size: 2vw;
+  font-size: 3vw;
+  font-family: 'Roboto Slab', serif;
+  padding-left: 2px;
+  padding-right: 2px;
+
 
 }
 
 .top-venue-name {
   color: white;
   font-size: 2vw;
+  font-family: 'Roboto Slab', serif;
+  padding-left: 2px;
+  padding-right: 2px;
 }
 
 .number {

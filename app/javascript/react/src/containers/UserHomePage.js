@@ -32,7 +32,6 @@ class UserHomePage extends Component {
       return response.json()
     })
     .then(body => {
-      debugger
       this.setState({user: body.user, concerts: body.concert, topBandShows: body.topBandShows, showsPerYear: body.showsPerYear, topVenue: body.topVenue})
     })
   }
@@ -141,7 +140,7 @@ class UserHomePage extends Component {
               <div className="cell medium-3 medium-offset-1">
                 <div className="show-table">
                   <div>
-                    Shows Each Year
+                    Concerts Each Year
                   </div>
                   <div className="shows-table">
                   <table className="unstriped">
@@ -173,38 +172,3 @@ class UserHomePage extends Component {
 }
 
 export default UserHomePage
-
-
-//
-// <div className="data-points">
-//   <div className="grid-y">
-//     <div className="grid-x grid-padding-x">
-//       <div className="cell medium-3 small-offset-1">
-//         {topBandShows}
-//       </div>
-//       <div className="cell medium-4 medium-cell-block">
-//         {topVenue}
-//       </div>
-//         <div className="cell medium-3">
-//           <div className="show-table">
-//             <div>
-//               Shows Each Year
-//             </div>
-//             <div className="shows-table">
-//             <table>
-//               <thead className="thead">
-//                 <tr>
-//                   <th width="50">Date</th>
-//                   <th width="50">Count</th>
-//                 </tr>
-//               </thead>
-//               <tbody className="shows-by-year-table">
-//                 {showsPerYear}
-//               </tbody>
-//             </table>
-//           </div>
-//         </div>
-//       </div>
-//     </div>;
-//   </div>
-// </div>
