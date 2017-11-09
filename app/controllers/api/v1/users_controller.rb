@@ -5,52 +5,70 @@ class Api::V1::UsersController < ApplicationController
   def index
     user = current_user
 
-    concert = current_user.concerts
-    band = ConcertSerializer.bands(concert)
+    concert = user.concerts
+    concerts = ConcertSerializer.bands(concert)
 
-    top_venue = Concert.most_active_venues(1)
+#//top venue
+    user_venues = {}
 
-    venue_name = ""
-    number_of_venue_shows = 0
-    top_venue_array = []
-
-    top_venue.each do |key, value|
-      venue_name = key
-      number_of_shows = value
-      top_venue_array << {venue: venue_name, shows: number_of_shows}
+    Userconcert.where(user_id:current_user).each do |c|
+      venues = Concert.where(id:c.concert.id)
+      venues.each do |concert|
+        venue = concert.venue
+        if user_venues.has_key?(venue)
+          user_venues[venue] += 1
+        else
+          user_venues[venue] = 1
+        end
+      end
     end
 
-    unorganized_bands = Band.joins(:concerts).group(:year).order("count_concert_id DESC").count(:concert_id)
+    top_user_venue = user_venues.max_by{|k,v| v}
 
-    shows_per_year = []
 
-    unorganized_bands.each do |key, value|
-      year = key
-      show_count = value
-      shows_per_year << {year: year, show_count: show_count}
+
+#//tshows per year
+
+  shows_per_year = {}
+
+  Userconcert.where(user_id:current_user).each do |c|
+    years = Concert.where(id:c.concert.id)
+    years.each do |concert|
+      year = concert.year
+      if shows_per_year.has_key?(year)
+        shows_per_year[year] += 1
+      else
+        shows_per_year[year] = 1
+      end
+    end
+  end
+
+show_by_year = []
+
+  shows_per_year.each do |key, value|
+    year = key
+    count = value
+    show_by_year << {year: year, show_count: value}
+  end
+
+#//top band
+    user_bands = {}
+
+    Userconcert.where(user_id:current_user).each do |c|
+      user_concerts = ConcertBand.where(concert_id:c.concert.id)
+      user_concerts.each do |concert|
+        band = Band.find(concert.band_id).name
+        if user_bands.has_key?(band)
+          user_bands[band] += 1
+        else
+          user_bands[band] = 1
+        end
+      end
     end
 
-    top_band_id = Band.joins(:concert_bands).group(:band_id).order("count_concert_id DESC").limit(1).count(:concert_id)
+    top_user_band = user_bands.max_by{|k,v| v}
 
-    band_id = ""
-    number_of_shows = 0
-    active_band = nil
-    top_band_shows = []
-
-    top_band_id.each do |key, value|
-      band_id = key
-      number_of_shows = value
-      active_band = Band.find(band_id)
-      top_band_shows << {band: active_band, shows: number_of_shows}
-    end
-
-    # top_venue = Concert.most_active_venues(1)
-    # top_venue_array << top_venue
-
-    # top_band_array = []
-    # top_band =
-
-    render json: {topBandShows: top_band_shows, concert: band, user: user, showsPerYear: shows_per_year, topVenue: top_venue_array}
+    render json: {topBandShows: top_user_band, concert: concerts, user: user, showsPerYear: show_by_year, topVenue: top_user_venue}
 
   end
 

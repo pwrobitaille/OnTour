@@ -12,6 +12,11 @@
   border-radius: 10px;
 }
 
+.thead {
+  border-color: #355C7D;
+  border-style: solid;
+}
+
 
 .concert-table {
 	width: 100%;
@@ -23,28 +28,39 @@
 .table-row {
   display: block;
   height: auto;
+
+}
+
+.table-header {
+  color: white;
+  background-color: #355C7D;
 }
 
 .table-data {
   display: block;
 }
 
+
 table {
 	width: 100%;
 }
 
 #setlist {
-  color: blue;
+  color: #355C7D;
 }
 
-a {
-  color: white
+.setlist {
+  color: #355C7D;
+
 }
 
-
-tbody tr:hover {
-  background: #053A5D;
+.table tbody tr:hover td, .table tbody tr:hover th {
+  background: #EAA973;
 }
+
+// tbody tr:hover {
+//   background: #EAA973;
+// }
 
 input.light-table-filter {
   width: 40%;

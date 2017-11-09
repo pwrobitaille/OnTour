@@ -16,4 +16,11 @@ class UserConcertSerializer < ActiveModel::Serializer
     end
     return all_concerts
   end
+
+  # def self.user(concerts)
+  #   user_concerts = []
+  #   if concerts
+  #     concerts.each do |concert|
+  #       concert_band = ConcertBand.where(concert_id: concert.id)[0]
+  #       concert_user = ConcertBand.where()
 end

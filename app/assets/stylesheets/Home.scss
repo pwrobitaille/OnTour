@@ -4,32 +4,41 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  // font-family: 'Roboto Slab', serif;
+  font-family: 'Bree Serif', serif;
+
 }
 
+.html-body {
+  margin-top: 20px;
+}
+
+a {
+  color: white
+}
+
+a:hover {
+  color: #355C7D;
+}
+
+a:focus {
+  color: white;
+}
 
 .jam-on-logo {
   font-size: 25px;
   margin-top: 20px;
   margin-left: 40px;
 }
-div.jam-on-logo:hover {
-  color: #053A5D;
-}
-.jam-on-logo:focus {
-  color: white;
-}
-div.jam-on-logo {
-  color: white;
-}
 
 .sign-in {
   font-size: 25px;
   text-align: right;
-  margin-top: 20px;
+  margin-top: 30px;
   margin-right: 40px;
 }
 .sign-in:hover {
-  color: #053A5D;
+  color: #355C7D;
 }
 .sign-in:focus {
   color: white;
@@ -37,33 +46,85 @@ div.jam-on-logo {
 
 .jam-on-title {
   text-align: center;
-  margin-top: 60px;
-  font-size: 70px;
-  color: #053A5D;
+  margin-top: 50px;
+  font-size: 80px;
+  color: #355C7D;
 }
 
-.top-bar {
-  background: none;
-
-}
+// .nav-bar {
+// margin-bottom: 100px;
+// }
 
 .button:hover {
-  background: #053A5D;
+  background: #355C7D;
 }
 
 .button:focus {
-  background: #053A5D;
+  background: #355C7D;
 }
 
 .register-button {
-margin-top: 5%;
-padding-left: 39px;
-padding-right: 39px;
-background: none;
-font-size: 20px;
-border-radius: 50px;
-border-width: thin;
-border-style: solid;
-border-color: #053A5D;
+  padding-left: 39px;
+  padding-right: 39px;
+  background: none;
+  font-size: 20px;
+  border-radius: 50px;
+  border-width: thin;
+  border-style: solid;
+  border-color: #355C7D;
+  font-family: 'Bree Serif', serif;
 
+}
+
+.small-profile-image {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  margin: auto;
+  margin-top: 20px;
+  margin-right: 40px;
+
+
+}
+
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #EAA973}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
 }

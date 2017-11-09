@@ -9,8 +9,8 @@ const InputField = (props) => {
             type='text'
             value={props.content}
             onChange={props.handleChange}
+            list="bands"
           />
-
         </label>
     </div>
   )

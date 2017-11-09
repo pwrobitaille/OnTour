@@ -107,11 +107,11 @@ class UserConcertInfo extends Component {
       return(
         <div>
 
-          <input type="search" className="light-table-filter" data-table="order-table" placeholder="Filter" />
+          <input type="search" className="light-table-filter" data-table="order-table" placeholder="Search" />
 
           <div className="concert-table-div">
-            <table className="order-table table">
-                <thead>
+            <table className="order-table unstriped hover table">
+                <thead className="thead">
                   <tr className="table-row">
                     <th width="50" className="table-header">Number</th>
                     <th width="100" className="table-header">Date</th>

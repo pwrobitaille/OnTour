@@ -2,11 +2,11 @@ import React from 'react'
 
 const RecentConcert = (props) => {
   return (
-    <tr>
-      <td>{props.year}</td>
+    <tr className="recent-concert-row">
+      <td width="50">{props.year}</td>
       <td>{props.band}</td>
       <td>{props.venue}</td>
-      <td><a id="setlist" target='_blank' href={`${props.setlist}`}>Setlist</a></td>
+      <td className="setlist"><a id="setlist" target='_blank' href={`${props.setlist}`}>Setlist</a></td>
     </tr>
   )
 }

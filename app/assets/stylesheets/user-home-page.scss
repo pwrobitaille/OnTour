@@ -3,7 +3,7 @@ $translucent-form-overlay-max-width: 800px;
 .translucent-form-overlay {
   max-width: $translucent-form-overlay-max-width;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 10px;
   background-color: rgba(54, 54, 54, 0.8);
   padding: 20px;
   color: white;
@@ -14,6 +14,7 @@ $translucent-form-overlay-max-width: 800px;
 
   h3, label {
     color: white;
+    font-family: 'Bree Serif', serif;
   }
   input, select {
     color: dark-gray;
@@ -21,25 +22,23 @@ $translucent-form-overlay-max-width: 800px;
   input::placeholder {
     color: dark-gray;
   }
+
+}
+
+button {
+  font-family: 'Bree Serif', serif;
+  background: none;
+}
+button:hover {
+  font-family: 'Bree Serif', serif;
+  background: none;
 }
 
 .user-info-div {
   margin: 30px 0px 0px 40px;
-  // border-style: solid;
-  // border-color: #053A5D;
-  // border-width: medium;
   background-color: rgba(54, 54, 54, 0.8);
-  // padding-bottom: 55px;
-  // max-height: 100%
 }
-// .user-info-div-2 {
-//   margin: 30px 40px 0px 0px;
-//   border-style: solid;
-//   border-color: #053A5D;
-//   border-width: medium;
-//   background-color: rgba(54, 54, 54, 0.8);
-//   padding-bottom: 20px;
-// }
+
 
 #setlist {
   color: blue;
@@ -57,8 +56,10 @@ $translucent-form-overlay-max-width: 800px;
 .form-submit-button {
   display: block;
   margin: auto;
-  background-color: #053A5D;
+  background-color: #355C7D;
   border-radius: 50px;
+  font-family: 'Roboto Slab', serif;
+
 }
 
 .form-submit-button:hover {
@@ -68,16 +69,12 @@ $translucent-form-overlay-max-width: 800px;
 .user-info {
   margin-top: 20px;
   margin-left: 40px;
-  // margin-right: 40px;
-  // margin-bottom: 5px;
 }
 
 .user-image {
   height: 200px;
   width: 200px;
-  // border-style: solid;
   border-radius: 100px;
-  // border-color: #053A5D;
   align-self: center;
   object-position: center;
   object-fit:fill;
@@ -120,8 +117,6 @@ $translucent-form-overlay-max-width: 800px;
 .recent-concerts {
   font-size: 30px;
   color: white;
-  // border-style: solid;
-  // border-color: #053A5D;
   border-radius: 10px;
   background-color: rgba(54, 54, 54, 0.8);
   padding-right: 30px;
@@ -129,7 +124,8 @@ $translucent-form-overlay-max-width: 800px;
   text-align: center;
   margin-right: 40px;
   margin-top: 30px;
-  margin-left: 20px;;
+  margin-left: 20px;
+  max-height: 300px;
 
 }
 
@@ -137,12 +133,21 @@ $translucent-form-overlay-max-width: 800px;
   margin-top: 5px;;
   margin-left: 1rem;
   margin-right: 1rem;
-  // max-height: 200px;
+  max-height: 200px;
   overflow: scroll;
 }
 
+.table-expand-row th {
+  border-style: solid;
+  border-color: #355C7D;
+}
+
+.table-expand tbody tr:hover td, .table tbody tr:hover th {
+  background: #EAA973;
+}
+
 .table-expand td {
-  color: #8a8a8a;
+  color: black;
 }
 
 .table-expand tr {
@@ -154,29 +159,43 @@ $translucent-form-overlay-max-width: 800px;
 }
 
 .add-new-concert-button {
-  // margin: auto;
   background: rgba(54, 54, 54, 0.8);
   font-size: 20px;
   border-radius: 50px;
-  // border-width:medium;
-  // border-style: solid;
-  // border-color: #053A5D;
   margin-top: 10px;
+  margin-left: 40px;
+  font-family: 'Roboto Slab', serif;
+
+}
+
+.see-all-concert-button {
+  background: rgba(54, 54, 54, 0.8);
+  font-size: 20px;
+  border-radius: 50px;
+  margin-top: 10px;
+  margin-left: -50px;
+  font-family: 'Roboto Slab', serif;
+
 }
 
 .data-points {
-  margin-top: 20px;
+  margin-top: 2\10px;
+}
+
+.top-title {
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: #355C7D;
 }
 
 .top-artist {
   color: white;
   font-size: 20px;
-  font-size: 3.5vw;
   text-align: center;
   background-color: rgba(54, 54, 54, 0.8);
   border-radius: 10px;
   height: 250px;
-  width: 200px;
+  width: 300px;
   margin-left: 40px;
   padding-top: 10px;
 
@@ -185,12 +204,11 @@ $translucent-form-overlay-max-width: 800px;
 .top-venue {
   color: white;
   font-size: 20px;
-  font-size: 3.5vw;
   text-align: center;
   background-color: rgba(54, 54, 54, 0.8);
   border-radius: 10px;
   height: 250px;
-  width: 200px;
+  width: 300px;
   margin: auto;
   object-position: center;
   object-fit:fill;
@@ -213,7 +231,13 @@ $translucent-form-overlay-max-width: 800px;
   padding-bottom: 5px;
   overflow: hidden;
   max-height: 250px;
+  margin-right: 20px;
 
+}
+
+.thead th {
+  background-color: #355C7D;
+  color: white;
 }
 
 .shows-table {
@@ -225,9 +249,30 @@ $translucent-form-overlay-max-width: 800px;
 .shows-by-year-table {
   overflow-y: scroll;
   height: 200px;
-  // position: relative;
 }
 
-h2 {
+table tbody tr:hover td, .table tbody tr:hover th {
+  background: #EAA973;
+}
+
+.top-band-name {
   color: white;
+  font-size: 2vw;
+  font-family: 'Roboto Slab', serif;
+  padding-left: 2px;
+  padding-right: 2px;
+
+
+}
+
+.top-venue-name {
+  color: white;
+  font-size: 2vw;
+  font-family: 'Roboto Slab', serif;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.number {
+  font-size: 3vw;
 }

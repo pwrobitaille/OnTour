@@ -5,6 +5,9 @@
     <%= csrf_meta_tags %>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.2/css/foundation.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Roboto+Slab" rel="stylesheet">
+    <link rel="stylesheet" href="http://about.coolecho.net/common/count.min.css" />
+
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
 
@@ -17,16 +20,20 @@
             <%= link_to "OnTour", "/" %>
           </div>
         </div>
-        <div class="small-6 cell">
-          <div class="sign-in">
-          <% if current_user %>
-            <%= link_to "Sign Out", logout_path %>
-          <% else %>
-            <%= link_to "Sign In", "/auth/google" %>
-            <% end %>
-          </div>
-        </div>
+        <div class="small-1 cell small-offset-5 image-menu">
+          <ul class="dropdown">
+              <% if current_user %>
+              <%= image_tag(current_user.image, :class => "small-profile-image") %>
+              <ul class="dropdown-content">
+                <li><%= link_to "Profile", "/users/#{current_user.id}" %></li>
+                  <%= link_to "Sign Out", logout_path %>
+                <% else %>
+              <% end %>
+              </ul>
+            </div>
+          </ul>
     </div>
+
     <%= yield %>
 
   </body>

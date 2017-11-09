@@ -3,6 +3,8 @@ import InputField from '../components/InputField';
 import TextField from '../components/TextField';
 import { push } from 'react-router'
 import { browserHistory } from 'history'
+import ReactAutocomplete from 'react-autocomplete'
+
 
 
 class ConcertFormContainer extends Component {
@@ -17,12 +19,18 @@ class ConcertFormContainer extends Component {
       concertOpener: "",
       concertAttendees: "",
       concertNotes: "",
-      concertSetlist: ""
+      concertSetlist: "",
+      searchValue: "",
+      bands: [{name: "beatles"}, {name: "phish"}, {name: "rolling stones"}],
+      value: ""
     }
+
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleClearForm = this.handleClearForm.bind(this)
     this.addNewConcert = this.addNewConcert.bind(this)
+    this.postFetch = this.postFetch.bind(this);
+    this.handleBandSearch = this.handleBandSearch.bind(this);
 
   }
 
@@ -60,8 +68,10 @@ class ConcertFormContainer extends Component {
   }
 
 
+
+
   addNewConcert(formPayLoad) {
-    fetch(`/api/v1/users/${this.state.user.id}/concerts`, {
+    fetch(`/api/v1//concerts`, {
       method: "POST",
       body: JSON.stringify(formPayLoad),
       credentials: "same-origin",
@@ -84,6 +94,29 @@ class ConcertFormContainer extends Component {
       })
   }
 
+  postFetch(formPayload) {
+   fetch(`https://rest.bandsintown.com/artists/app_id=OnTour`, {
+     method: 'POST',
+     headers: {"Content-Type": 'application/json'},
+     body: JSON.stringify(formPayload)
+   })
+   .then(response => response.json())
+   .then(body => {
+     debugger
+     this.setState({ band: body.name })
+   })
+ }
+
+
+  handleBandSearch(event) {
+    let value = event.target.value
+    this.setState( { searchValue: value })
+    if (this.state.searchValue.length > 1) {
+      let formPayload = { searchValue: this.state.searchValue }
+      this.postFetch(formPayload)
+    }
+  }
+
 
   handleSubmit(event) {
     event.preventDefault();
@@ -101,20 +134,41 @@ class ConcertFormContainer extends Component {
   }
 
   render() {
+
     return(
       <div className="translucent-form-overlay">
         <form onSubmit={this.handleSubmit}>
           <div className="add-new-concert-text">
           <h3 >Add New Concert</h3>
         </div>
-          <div>
+            {/* <label>Band
+              <div>
+              <ReactAutocomplete
+                // wrapperStyle={{ width: 400 }}
+                  items={this.state.bands}
+                  shouldItemRender={(item, value) => item.name.toLowerCase().indexOf(value.toLowerCase()) > -1}
+                getItemValue={item => item.name}
+                renderItem={(item, highlighted) =>
+                  <div
+                    key={item.id}
+                    style={{ backgroundColor: highlighted ? '#EAA973' : 'white', color: 'black', width: 'auto'}}
+                  >
+                    {item.name}
+                  </div>
+                }
+                value={this.state.value}
+                onChange={e => this.setState({ value: e.target.value })}
+                onSelect={value => this.setState({ value })}
+              />
+            </div>
+            </label> */}
             <InputField
               content={this.state.band}
+              bands={this.state.bands}
               label="Band"
               name="band"
               handleChange={this.handleChange}
             />
-          </div>
           <div>
             <InputField
               content={this.state.concertYear}
