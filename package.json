@@ -22,6 +22,7 @@
     "react-router-test-context": "^0.1.0",
     "react-sortable-table": "^1.3.0",
     "react-table": "^6.7.4",
+    "react-text-resize": "^1.0.0",
     "webpacker-react": "^0.3.2"
   },
   "devDependencies": {
