@@ -5,14 +5,15 @@ class Api::V1::ConcertsController < ApplicationController
 
   def index
     @concert = current_user.concerts
-    band = ConcertSerializer.bands(@concert)
-    render json: band
+    bands = ConcertSerializer.bands(@concert)
+    render json: bands
   end
 
 
 
   def show
-
+    concert = Concert.find(params[:id])
+    render json: concert
   end
 
   def create
@@ -31,9 +32,22 @@ class Api::V1::ConcertsController < ApplicationController
      end
   end
 
+  def edit
+    concert = Concert.find(params[:id])
+    binding.pry
+    render json: concerts
+
+  end
+
+  # def update
+  #   user = current_user
+  #   concert_to_update = Concert.find(concert_params[:user_id])
+  #   user.concert_to_update
+  # end
+
   private
 
   def concert_params
-    params.require(:concert).permit(:user_id, :concert_id, :band, :year, :venue, :opener, :attendees, :notes, :setlist)
+    params.require(:concert).permit(:user_id, :id, :band, :year, :venue, :opener, :attendees, :notes, :setlist)
   end
 end

@@ -20,17 +20,12 @@ class ConcertFormContainer extends Component {
       concertAttendees: "",
       concertNotes: "",
       concertSetlist: "",
-      searchValue: "",
-      bands: [{name: "beatles"}, {name: "phish"}, {name: "rolling stones"}],
-      value: ""
     }
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleClearForm = this.handleClearForm.bind(this)
     this.addNewConcert = this.addNewConcert.bind(this)
-    this.postFetch = this.postFetch.bind(this);
-    this.handleBandSearch = this.handleBandSearch.bind(this);
 
   }
 
@@ -94,29 +89,6 @@ class ConcertFormContainer extends Component {
       })
   }
 
-  postFetch(formPayload) {
-   fetch(`https://rest.bandsintown.com/artists/app_id=OnTour`, {
-     method: 'POST',
-     headers: {"Content-Type": 'application/json'},
-     body: JSON.stringify(formPayload)
-   })
-   .then(response => response.json())
-   .then(body => {
-     debugger
-     this.setState({ band: body.name })
-   })
- }
-
-
-  handleBandSearch(event) {
-    let value = event.target.value
-    this.setState( { searchValue: value })
-    if (this.state.searchValue.length > 1) {
-      let formPayload = { searchValue: this.state.searchValue }
-      this.postFetch(formPayload)
-    }
-  }
-
 
   handleSubmit(event) {
     event.preventDefault();
@@ -141,27 +113,6 @@ class ConcertFormContainer extends Component {
           <div className="add-new-concert-text">
           <h3 >Add New Concert</h3>
         </div>
-            {/* <label>Band
-              <div>
-              <ReactAutocomplete
-                // wrapperStyle={{ width: 400 }}
-                  items={this.state.bands}
-                  shouldItemRender={(item, value) => item.name.toLowerCase().indexOf(value.toLowerCase()) > -1}
-                getItemValue={item => item.name}
-                renderItem={(item, highlighted) =>
-                  <div
-                    key={item.id}
-                    style={{ backgroundColor: highlighted ? '#EAA973' : 'white', color: 'black', width: 'auto'}}
-                  >
-                    {item.name}
-                  </div>
-                }
-                value={this.state.value}
-                onChange={e => this.setState({ value: e.target.value })}
-                onSelect={value => this.setState({ value })}
-              />
-            </div>
-            </label> */}
             <InputField
               content={this.state.band}
               bands={this.state.bands}

@@ -43,14 +43,15 @@ class UserHomePage extends Component {
     let concertNumber = this.state.concerts.length
 
 
-    let concerts = this.state.concerts.map(concert =>{
-      let concertData = concert.concert[0]
-      let bandData = concert.concert[1]
-      let openerData = bandData.opener
+    let concerts = this.state.concerts.map(json =>{
+      let concert = json.concert
+      let concertData = concert
+      let bandData = concert.bands.band
+      let openerData = concert.opener
       return(
           <RecentConcert
             id={concertData.id}
-            band={bandData.bands.name}
+            band={bandData.name}
             year={concertData.year}
             venue={concertData.venue}
             opener={openerData}
