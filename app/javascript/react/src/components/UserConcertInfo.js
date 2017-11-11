@@ -54,6 +54,7 @@ class UserConcertInfo extends Component {
 
   render(){
 
+
     let concertCounter = 0
 
     let concerts = this.state.concerts.map(concert => {
