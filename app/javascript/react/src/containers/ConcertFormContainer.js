@@ -29,8 +29,6 @@ class ConcertFormContainer extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleClearForm = this.handleClearForm.bind(this)
     this.addNewConcert = this.addNewConcert.bind(this)
-    this.postFetch = this.postFetch.bind(this);
-    this.handleBandSearch = this.handleBandSearch.bind(this);
 
   }
 
@@ -93,30 +91,6 @@ class ConcertFormContainer extends Component {
         this.props.history.push(`/users/${this.state.user.id}`)
       })
   }
-
-  postFetch(formPayload) {
-   fetch(`https://rest.bandsintown.com/artists/app_id=OnTour`, {
-     method: 'POST',
-     headers: {"Content-Type": 'application/json'},
-     body: JSON.stringify(formPayload)
-   })
-   .then(response => response.json())
-   .then(body => {
-     debugger
-     this.setState({ band: body.name })
-   })
- }
-
-
-  handleBandSearch(event) {
-    let value = event.target.value
-    this.setState( { searchValue: value })
-    if (this.state.searchValue.length > 1) {
-      let formPayload = { searchValue: this.state.searchValue }
-      this.postFetch(formPayload)
-    }
-  }
-
 
   handleSubmit(event) {
     event.preventDefault();

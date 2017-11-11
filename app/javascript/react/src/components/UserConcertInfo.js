@@ -8,7 +8,6 @@ class UserConcertInfo extends Component {
     this.state = {
       concerts:[],
     }
-    this.handleChange = this.handleChange.bind(this);
 
   }
 
