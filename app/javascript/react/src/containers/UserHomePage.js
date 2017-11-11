@@ -144,16 +144,16 @@ class UserHomePage extends Component {
               <div className="cell medium-3 medium-offset-1">
                 <div className="top-artist">
                   <div className="top-title">Top Artist</div>
-                  <div className="top-band-name">{this.state.topBandShows[0]}</div>
-                  <p className="number"><CountTo to={this.state.topBandShows[1]} speed={1000} /></p>
+                  {/* <div className="top-band-name">{this.state.topBandShows[0]}</div>
+                  <p className="number"><CountTo to={this.state.topBandShows[1]} speed={1000} /></p> */}
                 </div>
               </div>
               <div className="cell medium-4">
                 <div className="cell medium-3 medium-offset-1">
                   <div className="top-artist">
                     <div className="top-title">Top Venue</div>
-                    <div className="top-band-name">{this.state.topVenue[0]}</div>
-                    <p className="number"><CountTo to={this.state.topVenue[1]} speed={1000} /></p>
+                    {/* <div className="top-band-name">{this.state.topVenue[0]}</div>
+                    <p className="number"><CountTo to={this.state.topVenue[1]} speed={1000} /></p> */}
                   </div>
               </div>
             </div>
