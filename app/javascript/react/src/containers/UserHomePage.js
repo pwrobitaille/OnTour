@@ -70,6 +70,8 @@ class UserHomePage extends Component {
         )
       })
 
+      let showsPerYearReverse = showsPerYear.reverse()
+
       let reverseConcerts = concerts.reverse()
       let recentConcerts = reverseConcerts.slice(0, 5)
 
@@ -133,7 +135,7 @@ class UserHomePage extends Component {
                         </tr>
                       </thead>
                       <tbody className="shows-by-year-table hover">
-                        {showsPerYear}
+                        {showsPerYearReverse}
                       </tbody>
                     </table>
                   </div>

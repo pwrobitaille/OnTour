@@ -7,7 +7,6 @@ class UserConcertInfo extends Component {
     super(props)
     this.state = {
       concerts:[],
-      search_value: ''
     }
     this.handleChange = this.handleChange.bind(this);
 
@@ -52,29 +51,6 @@ class UserConcertInfo extends Component {
        LightTableFilter.init();
     })
   }
-
-  postFetch(formPayload) {
-    fetch('/api/v1/concerts', {
-     method: 'POST',
-     headers: {"Content-Type": 'application/json'},
-     body: JSON.stringify(formPayload)
-   })
-   .then(response => response.json())
-   .then(body => {
-     this.setState({ concerts: body })
-   })
-  }
-
-  handleChange(event) {
-    let value = event.target.value
-    this.setState( { search_value: value })
-    if (this.state.search_value.length > 1) {
-      let formPayload = { search_value: this.state.search_value }
-      this.postFetch(formPayload)
-    }
-  }
-
-
 
   render(){
 
@@ -128,32 +104,6 @@ class UserConcertInfo extends Component {
                 </tbody>
             </table>
           </div>
-
-
-
-
-          {/* <div className='search-bar'>
-            <input onChange={this.handleChange} value={this.state.search_value} type='search' placeholder='Search All Concerts' />
-          </div>
-         <div className="concert-table-div">
-           <table>
-             <thead>
-               <tr className="table-row">
-                 <th width="50" className="table-header">Number</th>
-                 <th width="100" className="table-header">Date</th>
-                 <th width="200" className="table-header">Concert</th>
-                 <th width="200" className="table-header">Venue</th>
-                 <th width="150" className="table-header">Opener</th>
-                 <th width="220" className="table-header">Attendees</th>
-                 <th width="300" className="table-header">Notes</th>
-                 <th width="100" className="table-header">Setlist</th>
-               </tr>
-             </thead>
-             <tbody className="concert-table">
-               {reverseConcerts}
-             </tbody>
-           </table>
-         </div> */}
       </div>
     )
   }
