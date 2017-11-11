@@ -108,8 +108,8 @@ class UserHomePage extends Component {
                 </table>
               </div>
             </div>
-          </div>
-          <div className="grid-x">
+          {/* </div>
+          <div className="grid-x"> */}
             <div className="small-3 cells">
               <NavLink to={`/users/${this.state.user.id}/new-concert`} className="add-new-concert-button button">Add New Concert </NavLink>
             </div>
