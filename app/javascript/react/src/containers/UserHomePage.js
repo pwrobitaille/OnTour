@@ -42,6 +42,32 @@ class UserHomePage extends Component {
 
     let concertNumber = this.state.concerts.length
 
+    let topVenue = this.state.topVenue.map(venue => {
+      return(
+        <TopVenue
+          venue={venue.venue}
+          count={venue.count}
+        />
+      )
+    })
+
+    let topBand = this.state.topBandShows.map(band => {
+      return(
+        <TopBandShow
+          band={band.band}
+          count={band.count}
+        />
+      )
+    })
+
+    let showsPerYear = this.state.showsPerYear.map(showPerYear => {
+      return(
+        <ShowsPerYear
+          year={showPerYear.year}
+          shows={showPerYear.show_count}
+        />
+      )
+    })
 
     let concerts = this.state.concerts.map(concert =>{
       let concertData = concert.concert[0]
@@ -61,14 +87,6 @@ class UserHomePage extends Component {
         )
       })
 
-      let showsPerYear = this.state.showsPerYear.map(showPerYear => {
-        return(
-          <ShowsPerYear
-            year={showPerYear.year}
-            shows={showPerYear.show_count}
-          />
-        )
-      })
 
       let showsPerYearReverse = showsPerYear.reverse()
 
@@ -142,19 +160,11 @@ class UserHomePage extends Component {
                 </div>
               </div>
               <div className="cell medium-3 medium-offset-1">
-                <div className="top-artist">
-                  <div className="top-title">Top Artist</div>
-                  {/* <div className="top-band-name">{this.state.topBandShows[0]}</div>
-                  <p className="number"><CountTo to={this.state.topBandShows[1]} speed={1000} /></p> */}
-                </div>
+                {topBand}
               </div>
               <div className="cell medium-4">
                 <div className="cell medium-3 medium-offset-1">
-                  <div className="top-artist">
-                    <div className="top-title">Top Venue</div>
-                    {/* <div className="top-band-name">{this.state.topVenue[0]}</div>
-                    <p className="number"><CountTo to={this.state.topVenue[1]} speed={1000} /></p> */}
-                  </div>
+                  {topVenue}
               </div>
             </div>
           </div>
