@@ -1,5 +1,5 @@
 import UserHomePage from '../../src/containers/UserHomePage'
-import { MemoryRouter, Route, Switch, NavLink } from 'react-router-dom';
+import { BrowserRouter, Router, Route, Switch, NavLink } from 'react-router-dom';
 import { mount } from 'enzyme'
 import CountTo from 'react-count-to';
 import ConcertFormContainer from '../../src/containers/ConcertFormContainer'
@@ -14,8 +14,7 @@ describe('UserHomePage', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = mount(<MemoryRouter initialEntries={['/users/:id']} initialIndex={0}>
-<UserHomePage /></MemoryRouter>)
+    wrapper = mount(<BrowserRouter><UserHomePage /></BrowserRouter>)
   })
 
   // it('should have the specified initial state', () => {
@@ -25,7 +24,7 @@ describe('UserHomePage', () => {
   //   topVenue: [],
   //   showsPerYear: [] })
   // })
-  //
+
   // it('should render a TopVenue component', () => {
   //   expect(wrapper.find(TopVenue)).toBePresent()
   // })
@@ -37,7 +36,7 @@ describe('UserHomePage', () => {
   // it('should render a ShowsPerYear component', () => {
   //   expect(wrapper.find(ShowsPerYear)).toBePresent()
   // })
-  // 
+  //
   // it('should render a RecentConcert component', () => {
   //   expect(wrapper.find(RecentConcert)).toBePresent()
   // })
