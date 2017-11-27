@@ -25,7 +25,7 @@ OnTour is an interactive app that lets users document and track their concert hi
 
   * Backend: Rails 5.1.2
   * Frontend: React.js and Embedded Ruby
-  * User Auth: Github Omniauth
+  * User Auth: Google Omniauth
   * Styling: Foundation
   * Database: Postgres
 
