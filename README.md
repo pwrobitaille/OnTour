@@ -5,7 +5,8 @@
 ![Coverage Status](https://coveralls.io/repos/github/uncommonAP/booze_yourself/badge.png)
 
 website: www.concertsontour.com
-dummy account: concertsontour@gmail.com pw: testconcertsontour
+dummy account: concertsontour@gmail.com 
+pw: testconcertsontour
 
 # OnTour
 
