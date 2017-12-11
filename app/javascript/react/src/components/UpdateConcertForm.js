@@ -26,6 +26,7 @@ class UpdateConcertForm extends Component {
         headers: { 'Content-Type':'application/json'}
       })
         .then(response => {
+          debugger
           response.json()
         })
         .then(body => {

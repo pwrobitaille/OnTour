@@ -33,9 +33,18 @@ class Api::V1::ConcertsController < ApplicationController
   end
 
   def edit
-    concert = Concert.find(params[:id])
+    #need to figure out how to querey through the serializer to find all of the concert data 
+    concert = current_user.concerts
+    edit_concert = Concert.find(params[:id])
+    concerts = ConcertSerializer.bands(edit_concert)
     binding.pry
-    render json: concerts
+
+    # edit_concert.id
+    # concert_array = []
+    # if concerts.include?(edit_concert.id)
+    #   concert_array << edit_concert
+    # end
+    render json: concert_array
 
   end
 
