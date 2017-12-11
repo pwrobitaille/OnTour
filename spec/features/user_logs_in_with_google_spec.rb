@@ -5,10 +5,8 @@
 #   scenario "using google oauth2" do
 #     stub_omniauth
 #     visit "/"
-#     expect(page).to have_link("Sign In")
-#     click_link "Sign In"
+#     click_on "Sign In"
 #     expect(page).to have_content("Jesse Spevack")
-#     expect(page).to have_link("Logout")
 #   end
 # end
 #
