@@ -76,21 +76,18 @@ class UserHomePage extends Component {
 
     return(
       <div>
-        <div className="grid-x">
-            <div className="small-2 cell">
+        <div className="user-info-container">
               <div className="user-info">
                 <img src={this.state.user.image} alt="pic" className="user-image"/>
                   <div className="user-details"> {this.state.user.first_name} {this.state.user.last_name}
                 </div>
               </div>
-            </div>
-            <div className="small-3 cell number-of-shows">
+            <div className="number-of-shows">
               <div className="show-counter">
                 <div>Concerts</div>
                 <div className="show-total"><CountTo to={concertNumber} speed={1000} /></div>
               </div>
             </div>
-          <div className="small-7 cell">
               <div className="recent-concerts">Recent Concerts
                 <table className="table-expand unstriped hover ">
                   <thead className="thead">
@@ -106,8 +103,9 @@ class UserHomePage extends Component {
                   </tbody>
                 </table>
               </div>
-            </div>
-          </div>
+        </div>
+
+
           <div className="grid-x">
             <div className="small-3 cells">
               <NavLink to={`/users/${this.state.user.id}/new-concert`} className="add-new-concert-button button">Add New Concert </NavLink>

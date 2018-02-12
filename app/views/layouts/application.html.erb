@@ -15,13 +15,9 @@
   </head>
 
   <body>
-    <div class="grid-x">
-        <div class="small-6 cell">
-          <div class="jam-on-logo">
-            <%= link_to "OnTour", "/" %>
-          </div>
-        </div>
-        <div class="small-1 cell small-offset-5 image-menu">
+    <div class="nav-bar-container">
+      <div class="nav-bar-grid">
+          <%= link_to "OnTour", "/", :class => "jam-on-logo"%>
           <ul class="dropdown">
               <% if current_user %>
               <%= image_tag(current_user.image, :class => "small-profile-image") %>
@@ -31,8 +27,8 @@
                 <% else %>
               <% end %>
               </ul>
-            </div>
           </ul>
+      </div>
     </div>
 
     <%= yield %>
