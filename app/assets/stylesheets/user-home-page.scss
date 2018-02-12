@@ -36,7 +36,7 @@ button:hover {
 
 .user-info-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding-left: 40px;
   padding-right: 40px;
   flex-wrap: wrap;
@@ -82,21 +82,42 @@ button:hover {
   padding-right: 30px;
   padding-bottom: 5px;
   text-align: center;
-  // margin-right: 40px;
-  // margin-top: 30px;
-  // margin-left: 20px;
   max-height: 500px;
-  // position: fixed;
-
-
 }
-
 
 #setlist {
   color: blue;
 }
 
+.button-container {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 40px;
+  flex-wrap: wrap;
+}
 
+.concert-button {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.add-new-concert-button {
+  background: rgba(54, 54, 54, 0.8);
+  font-size: 20px;
+  border-radius: 50px;
+  margin-top: 10px;
+  font-family: 'Roboto Slab', serif;
+
+}
+
+.see-all-concert-button {
+  background: rgba(54, 54, 54, 0.8);
+  font-size: 20px;
+  border-radius: 50px;
+  margin-top: 10px;
+  font-family: 'Roboto Slab', serif;
+
+}
 
 .add-new-concert-text {
   text-align: center;
@@ -170,28 +191,10 @@ button:hover {
   text-align: left;
 }
 
-.add-new-concert-button {
-  background: rgba(54, 54, 54, 0.8);
-  font-size: 20px;
-  border-radius: 50px;
-  margin-top: 10px;
-  margin-left: 40px;
-  font-family: 'Roboto Slab', serif;
-
-}
-
-.see-all-concert-button {
-  background: rgba(54, 54, 54, 0.8);
-  font-size: 20px;
-  border-radius: 50px;
-  margin-top: 10px;
-  margin-left: -50px;
-  font-family: 'Roboto Slab', serif;
-
-}
-
-.data-points {
-  margin-top: 2\10px;
+.data-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .top-title {
@@ -208,7 +211,6 @@ button:hover {
   border-radius: 10px;
   height: 250px;
   width: 300px;
-  margin-left: 40px;
   padding-top: 10px;
 
 }
@@ -243,8 +245,6 @@ button:hover {
   padding-bottom: 5px;
   overflow: hidden;
   max-height: 250px;
-  margin-right: 20px;
-
 }
 
 .thead th {

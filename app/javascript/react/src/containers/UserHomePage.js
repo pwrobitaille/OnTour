@@ -77,86 +77,73 @@ class UserHomePage extends Component {
     return(
       <div>
         <div className="user-info-container">
-              <div className="user-info">
-                <img src={this.state.user.image} alt="pic" className="user-image"/>
-                  <div className="user-details"> {this.state.user.first_name} {this.state.user.last_name}
-                </div>
-              </div>
-            <div className="number-of-shows">
-              <div className="show-counter">
-                <div>Concerts</div>
-                <div className="show-total"><CountTo to={concertNumber} speed={1000} /></div>
-              </div>
-            </div>
-              <div className="recent-concerts">Recent Concerts
-                <table className="table-expand unstriped hover ">
-                  <thead className="thead">
-                    <tr className="table-expand-row">
-                      <th width="50">Date</th>
-                      <th width="200">Concert</th>
-                      <th width="200">Venue</th>
-                      <th width="100">Setlist</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {recentConcerts}
-                  </tbody>
-                </table>
-              </div>
-        </div>
-
-
-          <div className="grid-x">
-            <div className="small-3 cells">
-              <NavLink to={`/users/${this.state.user.id}/new-concert`} className="add-new-concert-button button">Add New Concert </NavLink>
-            </div>
-            <div className="small-3 cells">
-              <NavLink to={`/users/${this.state.user.id}/concerts`} className="see-all-concert-button button">See All Concerts</NavLink>
+          <div className="user-info">
+            <img src={this.state.user.image} alt="pic" className="user-image"/>
+              <div className="user-details"> {this.state.user.first_name} {this.state.user.last_name}
             </div>
           </div>
-
-        <div className="data-points">
-          <div className="grid-y">
-            <div className="grid-x grid-padding-x">
-                <div className="cell medium-3 medium-offset-1">
-                  <div className="show-table">
-                    <div>
-                      Concerts Each Year
-                    </div>
-                    <div className="shows-table">
-                    <table className="unstriped">
-                      <thead className="thead">
-                        <tr>
-                          <th width="50">Date</th>
-                          <th width="50">Count</th>
-                        </tr>
-                      </thead>
-                      <tbody className="shows-by-year-table hover">
-                        {showsPerYear}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-              <div className="cell medium-3 medium-offset-1">
-                <div className="top-artist">
-                  <div className="top-title">Top Artist</div>
-                  <div className="top-band-name">{this.state.topBandShows[0]}</div>
-                  <p className="number"><CountTo to={this.state.topBandShows[1]} speed={1000} /></p>
-                </div>
-              </div>
-              <div className="cell medium-4">
-                <div className="cell medium-3 medium-offset-1">
-                  <div className="top-artist">
-                    <div className="top-title">Top Venue</div>
-                    <div className="top-band-name">{this.state.topVenue[0]}</div>
-                    <p className="number"><CountTo to={this.state.topVenue[1]} speed={1000} /></p>
-                  </div>
-              </div>
+          <div className="number-of-shows">
+            <div className="show-counter">
+              <div>Concerts</div>
+              <div className="show-total"><CountTo to={concertNumber} speed={1000} /></div>
             </div>
           </div>
+          <div className="recent-concerts">Recent Concerts
+            <table className="table-expand unstriped hover ">
+              <thead className="thead">
+                <tr className="table-expand-row">
+                  <th width="50">Date</th>
+                  <th width="200">Concert</th>
+                  <th width="200">Venue</th>
+                  <th width="100">Setlist</th>
+                </tr>
+              </thead>
+              <tbody>
+                {recentConcerts}
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
+
+        <div className="button-container">
+          <div className="concert-button">
+            <NavLink to={`/users/${this.state.user.id}/new-concert`} className="add-new-concert-button button">Add New Concert </NavLink>
+          </div>
+          <div className="concert-button">
+            <NavLink to={`/users/${this.state.user.id}/concerts`} className="see-all-concert-button button">See All Concerts</NavLink>
+          </div>
+        </div>
+
+        <div className="data-container">
+          <div className="show-table">
+            <div>
+              Concerts Each Year
+            </div>
+            <div className="shows-table">
+              <table className="unstriped">
+                <thead className="thead">
+                  <tr>
+                    <th width="50">Date</th>
+                    <th width="50">Count</th>
+                  </tr>
+                </thead>
+                <tbody className="shows-by-year-table hover">
+                  {showsPerYear}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div className="top-artist">
+            <div className="top-title">Top Artist</div>
+            <div className="top-band-name">{this.state.topBandShows[0]}</div>
+            <p className="number"><CountTo to={this.state.topBandShows[1]} speed={1000} /></p>
+          </div>
+          <div className="top-artist">
+            <div className="top-title">Top Venue</div>
+            <div className="top-band-name">{this.state.topVenue[0]}</div>
+            <p className="number"><CountTo to={this.state.topVenue[1]} speed={1000} /></p>
+          </div>
+        </div>
     </div>
     )
   }
