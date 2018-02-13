@@ -42,6 +42,7 @@ class UserHomePage extends Component {
 
     let concertNumber = this.state.concerts.length
 
+
     let topVenue = this.state.topVenue.map(venue => {
       return(
         <TopVenue
@@ -153,16 +154,8 @@ class UserHomePage extends Component {
               </table>
             </div>
           </div>
-          <div className="top-artist">
-            <div className="top-title">Top Artist</div>
-            <div className="top-band-name">{this.state.topBandShows[0]}</div>
-            <p className="number"><CountTo to={this.state.topBandShows[1]} speed={1000} /></p>
-          </div>
-          <div className="top-artist">
-            <div className="top-title">Top Venue</div>
-            <div className="top-band-name">{this.state.topVenue[0]}</div>
-            <p className="number"><CountTo to={this.state.topVenue[1]} speed={1000} /></p>
-          </div>
+          <div>{topBand}</div>
+          <div>{topVenue}</div>
         </div>
     </div>
     )
