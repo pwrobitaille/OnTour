@@ -78,8 +78,6 @@ class UserConcertInfo extends Component {
       selectedConcert: concert_id,
     })
   }
-
-
   render(){
 
     let updateConcertForm;

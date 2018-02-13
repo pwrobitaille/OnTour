@@ -16,8 +16,6 @@ class JamOn extends Component {
   }
 
   render(){
-    let rootDiv = document.getElementById("app")
-    let currentUserId = rootDiv.dataset.currentUserId
     return(
       <div>
         <Switch>
