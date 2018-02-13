@@ -7,6 +7,7 @@ class Api::V1::UsersController < ApplicationController
 
     concert = user.concerts
     concerts = ConcertSerializer.bands(concert)
+    # binding.pry
 
 #//top venue
     user_venues = {}

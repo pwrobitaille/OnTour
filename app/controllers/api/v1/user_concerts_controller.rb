@@ -21,7 +21,6 @@ class Api::V1::UserConcertsController < ApplicationController
      if @concert.save
        ConcertBand.create!(band_id: band.id, concert_id: @concert.id, opener_id: opener.id)
        Userconcert.create!(concert_id: @concert.id, user_id: current_user.id)
-      #  concat this render to the sate of the recent concert on the home page
        render json: { concert: @concert, band: band, opener: params["opener"] }
      else
        render json: "This concert could not be saved"

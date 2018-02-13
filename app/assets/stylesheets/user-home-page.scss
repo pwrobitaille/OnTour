@@ -34,41 +34,25 @@ button:hover {
   background: none;
 }
 
+.user-info-container {
+  display: flex;
+  justify-content: space-around;
+  padding-left: 40px;
+  padding-right: 40px;
+  flex-wrap: wrap;
+}
+
+.user-info-grid {
+  width: 100%;
+}
+
 .user-info-div {
   margin: 30px 0px 0px 40px;
   background-color: rgba(54, 54, 54, 0.8);
 }
 
-
-#setlist {
-  color: blue;
-}
-
-
-
-.add-new-concert-text {
-  text-align: center;
-  margin-top: 10px;
-}
-
-
-
-.form-submit-button {
-  display: block;
-  margin: auto;
-  background-color: #355C7D;
-  border-radius: 50px;
-  font-family: 'Roboto Slab', serif;
-
-}
-
-.form-submit-button:hover {
-  color: black;
-}
-
 .user-info {
   margin-top: 20px;
-  margin-left: 40px;
 }
 
 .user-image {
@@ -89,6 +73,71 @@ button:hover {
   text-align: center;
 
 }
+
+.recent-concerts {
+  font-size: 30px;
+  color: white;
+  border-radius: 10px;
+  background-color: rgba(54, 54, 54, 0.8);
+  padding-right: 30px;
+  padding-bottom: 5px;
+  text-align: center;
+  max-height: 500px;
+}
+
+#setlist {
+  color: blue;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 40px;
+  flex-wrap: wrap;
+}
+
+.concert-button {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.add-new-concert-button {
+  background: rgba(54, 54, 54, 0.8);
+  font-size: 20px;
+  border-radius: 50px;
+  margin-top: 10px;
+  font-family: 'Roboto Slab', serif;
+
+}
+
+.see-all-concert-button {
+  background: rgba(54, 54, 54, 0.8);
+  font-size: 20px;
+  border-radius: 50px;
+  margin-top: 10px;
+  font-family: 'Roboto Slab', serif;
+
+}
+
+.add-new-concert-text {
+  text-align: center;
+  margin-top: 10px;
+}
+
+
+
+.form-submit-button {
+  display: block;
+  margin: auto;
+  background-color: #355C7D;
+  border-radius: 50px;
+  font-family: 'Roboto Slab', serif;
+}
+
+.form-submit-button:hover {
+  color: black;
+}
+
 
 .number-of-shows {
   margin-top: 30px;
@@ -111,22 +160,6 @@ button:hover {
 
 .show-total {
   font-size: 60px;
-}
-
-
-.recent-concerts {
-  font-size: 30px;
-  color: white;
-  border-radius: 10px;
-  background-color: rgba(54, 54, 54, 0.8);
-  padding-right: 30px;
-  padding-bottom: 5px;
-  text-align: center;
-  margin-right: 40px;
-  margin-top: 30px;
-  margin-left: 20px;
-  max-height: 500px;
-
 }
 
 .table-expand {
@@ -158,28 +191,10 @@ button:hover {
   text-align: left;
 }
 
-.add-new-concert-button {
-  background: rgba(54, 54, 54, 0.8);
-  font-size: 20px;
-  border-radius: 50px;
-  margin-top: 10px;
-  margin-left: 40px;
-  font-family: 'Roboto Slab', serif;
-
-}
-
-.see-all-concert-button {
-  background: rgba(54, 54, 54, 0.8);
-  font-size: 20px;
-  border-radius: 50px;
-  margin-top: 10px;
-  margin-left: -50px;
-  font-family: 'Roboto Slab', serif;
-
-}
-
-.data-points {
-  margin-top: 2\10px;
+.data-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .top-title {
@@ -196,7 +211,6 @@ button:hover {
   border-radius: 10px;
   height: 250px;
   width: 300px;
-  margin-left: 40px;
   padding-top: 10px;
 
 }
@@ -231,8 +245,6 @@ button:hover {
   padding-bottom: 5px;
   overflow: hidden;
   max-height: 250px;
-  margin-right: 20px;
-
 }
 
 .thead th {

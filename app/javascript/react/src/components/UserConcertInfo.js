@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ConcertTile from './ConcertTile'
+import UpdateConcertForm from './UpdateConcertForm'
 
 
 class UserConcertInfo extends Component {
@@ -7,12 +8,15 @@ class UserConcertInfo extends Component {
     super(props)
     this.state = {
       concerts:[],
+      user: [],
+      selectedConcert: ''
     }
+    this.concertEditSelect = this.concertEditSelect.bind(this);
 
   }
 
   componentDidMount(){
-    fetch(`/api/v1/concerts`, {
+    fetch(`/api/v1/users`, {
       credentials: "same-origin",
       headers: {"Content-Type": "application/json"}
     })
@@ -20,7 +24,7 @@ class UserConcertInfo extends Component {
       return response.json()
     })
     .then(body => {
-       this.setState({concerts: body})
+       this.setState({user: body.user, concerts: body.concert})
 
        var LightTableFilter = (function(Arr) {
            var _input;
@@ -51,38 +55,94 @@ class UserConcertInfo extends Component {
     })
   }
 
+  updateConcert(formPayLoad) {
+    // need to pull in concer id into url?
+    fetch(`/api/v1/concerts`, {
+      credentials: 'same-origin',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        method: 'PATCH',
+        body: JSON.stringify({ concert: formPayload })
+    })
+    .then(response => response.json())
+    .then(body => {
+      this.setState({concerts: body, selectedConcert: ''})
+    })
+    this.props.history.push(`/users/${this.state.user.id}/concerts`)
+  }
+
+  concertEditSelect(concert_id){
+    this.setState({
+      selectedConcert: concert_id,
+    })
+  }
   render(){
+
+    let updateConcertForm;
+    if(this.state.selectedConcert != "") {
+      updateConcertForm =
+      <UpdateConcertForm
+        userId={this.state.user.id}
+        updateConcert={this.updateConcert}
+        concertId={this.state.selectedConcert}
+      />
+    }
+
 
     let concertCounter = 0
 
-    let concerts = this.state.concerts.map(concert => {
-
+    let concerts = this.state.concerts.map((json) => {
+      let concert = json.concert
       concertCounter ++
-      let concertData = concert.concert[0]
-      let bandData = concert.concert[1]
-      let openerData = bandData.opener
+      let concertId = concert.id
+      let concertBand = concert.bands.band.name
+      let concertYear = concert.year
+      let concertVenue = concert.venue
 
-      return(
+      let concertOpener
+      if(concert.bands){
+        concertOpener = concert.bands.opener.name
+      }
+
+      let concertAttendees = concert.attendees
+      let concertNotes = concert.notes
+      let concertSetlist = concert.setlist
+
+
+
+        let handleConcertEditSelect = () => {
+          this.concertEditSelect(concert.id)
+        }
+
+
+
+
+        return(
           <ConcertTile
+            userId={this.state.user.id}
             concertCount={concertCounter}
-            id={concertData.id}
-            band={bandData.bands.name}
-            year={concertData.year}
-            venue={concertData.venue}
-            opener={openerData}
-            attendees={concertData.attendees}
-            notes={concertData.notes}
-            setlist={concertData.setlist}
+            id={concertId}
+            band={concertBand}
+            year={concertYear}
+            venue={concertVenue}
+            opener={concertOpener}
+            attendees={concertAttendees}
+            notes={concertNotes}
+            setlist={concertSetlist}
+            handleConcertUpdateClick={handleConcertEditSelect}
           />
         )
       })
-
       let reverseConcerts = concerts.reverse()
 
       return(
         <div>
+          <div>{updateConcertForm}</div>
 
           <input type="search" className="light-table-filter" data-table="order-table" placeholder="Search" />
+
 
           <div className="concert-table-div">
             <table className="order-table unstriped hover table">
@@ -96,6 +156,7 @@ class UserConcertInfo extends Component {
                     <th width="220" className="table-header">Attendees</th>
                     <th width="300" className="table-header">Notes</th>
                     <th width="100" className="table-header">Setlist</th>
+                    <th width="50" className="table-header">Edit</th>
                   </tr>
                 </thead>
                 <tbody className="concert-table">

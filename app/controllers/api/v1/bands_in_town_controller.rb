@@ -7,7 +7,7 @@ class Api::V1::BandsInTownController < ApplicationController
     @band_array = JSON.parse(response.body)
     @band_list = @band_array['bands']
     render json: @band_list[0..5]
-    
+
   end
 
 

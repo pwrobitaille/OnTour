@@ -28,13 +28,3 @@ OnTour is an interactive app that lets users document and track their concert hi
   * User Auth: Google Omniauth
   * Styling: Foundation
   * Database: Postgres
-
-
-## To run this app on your browser
-
-  * Install Ruby.2.3.3
-  * In a terminal, run git clone https://github.com/pwrobitaille/OnTour.git
-  * Navigate to the project's root directory with cd OnTour
-  * Run bundle install && yarn install && rake db:setup
-  * In another terminal window, run foreman start
-  * Visit http://localhost:5000/ in your browser

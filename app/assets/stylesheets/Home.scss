@@ -4,7 +4,6 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  // font-family: 'Roboto Slab', serif;
   font-family: 'Bree Serif', serif;
 
 }
@@ -25,66 +24,29 @@ a:focus {
   color: white;
 }
 
+.nav-bar-container {
+  display: flex;
+}
+
+.nav-bar-grid {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+}
+
 .jam-on-logo {
   font-size: 25px;
   margin-top: 20px;
   margin-left: 40px;
 }
 
-.sign-in {
-  font-size: 25px;
-  text-align: right;
-  margin-top: 30px;
-  margin-right: 40px;
-}
-.sign-in:hover {
-  color: #355C7D;
-}
-.sign-in:focus {
-  color: white;
-}
-
-.jam-on-title {
-  text-align: center;
-  margin-top: 50px;
-  font-size: 80px;
-  color: #355C7D;
-}
-
-// .nav-bar {
-// margin-bottom: 100px;
-// }
-
-.button:hover {
-  background: #355C7D;
-}
-
-.button:focus {
-  background: #355C7D;
-}
-
-.register-button {
-  padding-left: 39px;
-  padding-right: 39px;
-  background: none;
-  font-size: 20px;
-  border-radius: 50px;
-  border-width: thin;
-  border-style: solid;
-  border-color: #355C7D;
-  font-family: 'Bree Serif', serif;
-
-}
-
 .small-profile-image {
   border-radius: 50%;
   height: 40px;
   width: 40px;
-  margin: auto;
   margin-top: 20px;
   margin-right: 40px;
-
-
 }
 
 
@@ -119,7 +81,9 @@ a:focus {
     display: block;
 }
 
-.dropdown-content a:hover {background-color: #EAA973}
+.dropdown-content a:hover {
+    background-color: #EAA973
+}
 
 .dropdown:hover .dropdown-content {
     display: block;
@@ -127,4 +91,45 @@ a:focus {
 
 .dropdown:hover .dropbtn {
     background-color: #3e8e41;
+}
+
+.sign-in {
+  font-size: 25px;
+  text-align: right;
+  margin-top: 30px;
+  margin-right: 40px;
+}
+.sign-in:hover {
+  color: #355C7D;
+}
+.sign-in:focus {
+  color: white;
+}
+
+.jam-on-title {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 80px;
+  color: #355C7D;
+}
+
+.button:hover {
+  background: #355C7D;
+}
+
+.button:focus {
+  background: #355C7D;
+}
+
+.register-button {
+  padding-left: 39px;
+  padding-right: 39px;
+  background: #355C7D;
+  font-size: 20px;
+  border-radius: 50px;
+  border-width: thin;
+  border-style: solid;
+  border-color: #355C7D;
+  font-family: 'Bree Serif', serif;
+
 }
