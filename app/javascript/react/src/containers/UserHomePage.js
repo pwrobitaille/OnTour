@@ -42,6 +42,32 @@ class UserHomePage extends Component {
 
     let concertNumber = this.state.concerts.length
 
+    let topVenue = this.state.topVenue.map(venue => {
+      return(
+        <TopVenue
+          venue={venue.venue}
+          count={venue.count}
+        />
+      )
+    })
+
+    let topBand = this.state.topBandShows.map(band => {
+      return(
+        <TopBandShow
+          band={band.band}
+          count={band.count}
+        />
+      )
+    })
+
+    let showsPerYear = this.state.showsPerYear.map(showPerYear => {
+      return(
+        <ShowsPerYear
+          year={showPerYear.year}
+          shows={showPerYear.show_count}
+        />
+      )
+    })
 
     let concerts = this.state.concerts.map(json =>{
       let concert = json.concert
@@ -62,14 +88,8 @@ class UserHomePage extends Component {
         )
       })
 
-      let showsPerYear = this.state.showsPerYear.map(showPerYear => {
-        return(
-          <ShowsPerYear
-            year={showPerYear.year}
-            shows={showPerYear.show_count}
-          />
-        )
-      })
+
+      let showsPerYearReverse = showsPerYear.reverse()
 
       let reverseConcerts = concerts.reverse()
       let recentConcerts = reverseConcerts.slice(0, 5)

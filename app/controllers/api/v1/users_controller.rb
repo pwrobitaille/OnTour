@@ -24,8 +24,12 @@ class Api::V1::UsersController < ApplicationController
       end
     end
 
-    top_user_venue = user_venues.max_by{|k,v| v}
+    top_user_venue = user_venues.select{|key, value| value == user_venues.values.max}
 
+    top_venue = []
+    venue_key = top_user_venue.keys[0]
+    venue_value = top_user_venue.values[0]
+    top_venue << {venue: venue_key, count: venue_value}
 
 
 #//tshows per year
@@ -67,9 +71,14 @@ show_by_year = []
       end
     end
 
-    top_user_band = user_bands.max_by{|k,v| v}
+    top_user_band = user_bands.select{|key, value| value == user_bands.values.max}
 
-    render json: {topBandShows: top_user_band, concert: concerts, user: user, showsPerYear: show_by_year, topVenue: top_user_venue}
+    top_band = []
+    band_key = top_user_band.keys[0]
+    band_value = top_user_band.values[0]
+    top_band << {band: band_key, count: band_value}
+
+    render json: {topBandShows: top_band, concert: concerts, user: user, showsPerYear: show_by_year, topVenue: top_venue}
 
   end
 
